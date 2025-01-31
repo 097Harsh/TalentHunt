@@ -119,6 +119,22 @@
                     </p>
                     </a>
                 </li>
+                <li class="nav-item menu-open">
+                    <a href="{{route('JobApplication')}}" class="nav-link active">
+                    <i class="nav-icon bi bi-archive"></i>
+                    <p>
+                        Manage Job Application
+                    </p>
+                    </a>
+                </li>
+                <li class="nav-item menu-open">
+                    <a href="{{route('CompanyFeedback')}}" class="nav-link active">
+                    <i class="nav-icon bi bi-chat-left-text"></i>
+                    <p>
+                        Get Feedback
+                    </p>
+                    </a>
+                </li>
             </ul>
             <!--end::Sidebar Menu-->
           </nav>

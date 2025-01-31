@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\StatusMail;
 use App\Models\CompanyProfile;
+use App\Models\feedback;
 use App\Models\Skills;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Mail;
 
 class CompanyController extends Controller
 {
@@ -218,6 +221,137 @@ class CompanyController extends Controller
             return redirect()->route('MangeJob')->with('status', 'Job Deleted Successfully...');
         }
         return redirect()->route('login')->with('status','Please firtly logged in...');
+    }
+    //manage job application as know as job_applied
+    public function ManageJobApplication()
+    {
+        if(Auth::check())
+        {
+            $id = Auth::user()->id;
+            $record = DB::table('job_upload as ju')
+                        ->join('job_applied as ja', 'ju.job_id', '=', 'ja.job_id')
+                        ->join('users as u', 'ja.user_id', '=', 'u.id')
+                        ->join('user_profiles as up', 'u.id', '=', 'up.user_id')  
+                        ->where('ju.company_id', $id)
+                        ->select(
+                            'ju.job_id',
+                            'ju.title',
+                            'ju.description',
+                            'ju.posted_date',
+                            'u.id as candidate_id',
+                            'u.name as candidate_name',
+                            'u.email as candidate_email',
+                            'up.contact as candidate_contact',  
+                            'ja.app_id',
+                            'ja.application_date',
+                            'ja.application_status as application_status'
+                        )
+                        ->orderBy('ja.application_date', 'desc')
+                        ->paginate(5);
+            //echo "<pre>";print_r($record);die;
+            return view('company.job_applied.all_job_applied',compact('record'));         
+        }
+    }
+    //View job application method 
+    public function ViewJobApplication($id)
+    {
+        if(Auth::check())
+        {
+            $record = DB::table('job_applied as ja')
+                        ->join('job_upload as ju', 'ju.job_id', '=', 'ja.job_id')
+                        ->join('users', 'users.id', '=', 'ja.user_id')
+                        ->join('user_profiles', 'user_profiles.user_id', '=', 'ja.user_id')
+                        ->where('ja.app_id', '=', $id)
+                        ->select(
+                            'users.name as candidate_name',      
+                            'users.email as candidate_email',    
+                            'user_profiles.contact as candidate_contact',
+                            'ja.experince',          
+                            'ja.app_id',             
+                            'ja.resume',              
+                            'ja.application_date',               
+                            'ja.msg',                           
+                            'ja.application_status' ,             
+                        )
+                        ->first();
+            // echo "<pre>";print_r($record);die;
+            return view('company.job_applied.ViewJobApplication',compact('record'));
+        }
+    }
+    //edit job application status
+    public function EditJobApplication(Request $request)
+    {   
+        $validation = $request->validate([
+                        'status' => 'required'
+                    ]);
+        if(Auth::check())
+        {
+            $id = $request->input('app_id');
+            $status = $request->input('status');
+            $record = DB::table('job_applied')->where('app_id','=',$id)
+                                             ->update([
+                                                'application_status' => $status
+                                             ]);
+                                            
+            // Now, fetch the user associated with this job application
+                $jobApplied = DB::table('job_applied')
+                ->join('users', 'job_applied.user_id', '=', 'users.id')
+                ->where('job_applied.app_id', '=', $id)
+                ->select('users.email', 'job_applied.job_id','users.name')
+                ->first();
+                $name = $jobApplied->name;
+            
+            // If a user is found, send the email
+            if ($jobApplied) {
+                // Get the job details if needed for the email
+                $job = DB::table('job_upload')->where('job_id', '=', $jobApplied->job_id)->first();
+                $title = $job->title;
+                $status = $request->input('status');
+                // Send email
+                $email = $jobApplied->email;
+                Mail::to($email)->send(new StatusMail($title,$status,$name));
+                
+            }
+
+        
+            return redirect()->route('JobApplication')->with('status','Job Application Status Updated...');
+        }
+    }
+    //download pdf
+    public function DownloadResume(Request $request)
+    {
+        if(Auth::check())
+        {
+            $filename  = $request->input('filename');
+            $path = public_path()."/user/resume/";
+            $file = $path.$filename;
+            return response()->download($file);
+        }
+    }
+    //feedback form 
+    public function CompanyFeedback()
+    {
+        if(Auth::check())
+        {
+            return view('company.Feedback.feedback');
+        }
+    }
+    public function GetCompanyFeedback(Request $request)
+    {
+        $validation = $request->validate([
+            'rating' => 'required',
+            'msg' => 'required'
+        ]);
+        if(Auth::check())
+        {
+           $id = Auth::user()->id;
+           $feedback = new feedback();
+           $feedback->user_id = $id;
+           $feedback->rating = $request->input('rating');
+           $feedback->msg = $request->input('msg');
+           $feedback->save();
+           return redirect()->route('CompanyFeedback')->with('status','Feedback sended....');
+        }
     }
     
 }

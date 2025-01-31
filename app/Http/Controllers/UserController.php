@@ -194,4 +194,114 @@ class UserController extends Controller
             return redirect()->route('feedback')->with('status','feedback sended...');
         }
    }
+    //All jobs showing tu user's
+    public function AllJobs()
+    {
+         if(Auth::check())
+         {
+             $record = DB::table('job_upload')->where('status','=','Open')->paginate(5);
+             return view('user.All_Jobs',compact('record'));
+         }
+    }
+    public function MoreDetailJob($id){
+         if(Auth::check())
+         {
+             $record =  DB::table('job_upload as ju')
+                         ->join('company_profiles as cp', 'ju.company_id', '=', 'cp.user_id')
+                         ->join('users as u', 'ju.company_id', '=', 'u.id')
+                         ->join('job_category as cat','ju.category_id','=','cat.category_id')
+                         ->join('job_department as department','ju.department_id','=','department.department_id')
+                         ->select(
+                             'ju.job_id',
+                             'ju.title',
+                             'ju.description',
+                             'ju.num_of_vacany',
+                             'ju.experience',
+                             'ju.job_skill_required',
+                             'ju.posted_date',
+                             'ju.closing_date',
+                             'ju.ContactEmail',
+                             'u.name', 
+                             'u.email',
+                             'cp.contact',
+                             'cp.website_url', 
+                             'cat.category_name' ,
+                             'department.department_name'    
+                         )->where('ju.job_id','=',$id)
+                         ->first();
+             /*  echo "<pre>";
+             print_r($record);die; */
+             return view('user.view_job',compact('record'));
+         }
+    }
+    //search job
+    public function search(Request $request)
+    {
+            if(Auth::check())
+            {
+                 $result = [];
+                 $name = $request->input('search');
+                 //echo $name;die;
+                 $record = DB::table('job_upload')
+                                 ->where('title', 'LIKE', '%' . $name . '%')
+                                 ->paginate(5);
+                 
+                 //echo "<pre>";print_r($result);die;
+                 return view('user.All_Jobs',compact('record'));
+            }
+     }
+     //job applied module
+     public function Job_Applied(Request $request)
+     {
+         $validation = $request->validate([
+             'experience' => 'required',
+             'msg' => 'required|max:255',
+             'resume' => 'required|mimes:pdf,doc,docx,txt',
+         ]);
+         if(Auth::check())
+         {
+             $id = Auth::user()->id;
+             $job_id = $request->input('job_id');
+             $exp = $request->input('experience');
+             $msg = $request->input('msg');
+             $file = $request->file('resume');
+             $resume_name = $file->getClientOriginalName();
+             $resume_path = 'user/resume';
+             $date = now();
+             $application = DB::table('job_applied')->where('user_id','=',$id)
+                                                     ->where('job_id','=',$job_id)
+                                                     ->first();
+             if($application)
+             {
+                 return redirect()->route('AllJobs')->with('status','You Already Applied This Job...');
+             }
+             else
+             {
+                 $file->move($resume_path, $resume_name);
+                 $job_applied = DB::table('job_applied')->insert([
+                                     'application_status' => "Pending",
+                                     'msg'    =>  $msg,
+                                     'resume' => $resume_name,
+                                     'experince' => $exp,
+                                     'application_date' => $date,
+                                     'user_id' => $id,
+                                     'job_id'    =>  $job_id
+                                 ]); 
+                 return redirect()->route('AllJobs')->with('status','Job Application Submitted Successfully...');
+             }
+         }
+     }
+     //my jobs module
+     public function MyJobs()
+     {
+         if(Auth::check())
+         {
+             $id = Auth::user()->id;
+             $record = DB::table('job_applied as ja')->join('job_upload as ju','ju.job_id','=','ja.job_id')
+                                                     ->where('ja.user_id','=',$id)
+                                                     ->paginate(5); 
+             return view('user.MyJobs',compact('record'));
+         }
+     }
+ 
 }

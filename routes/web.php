@@ -26,6 +26,18 @@ Route::get('/get_city',[UserController::class,'get_city'])->name('get_city');
 //feedback 
 Route::get('/feedback',[UserController::class,'feedback'])->middleware(['auth', 'verified'])->name('feedback');
 Route::post('/store_feedback',[UserController::class,'store_feedback'])->middleware(['auth', 'verified'])->name('store_feedback');
+//all jobs module for user side
+Route::get('/AllJobs',[UserController::class,'AllJobs'])->middleware(['auth', 'verified'])->name('AllJobs');
+//more details view of job
+Route::get('/MoreDetailsJob/{id}',[UserController::class,'MoreDetailJob'])->middleware(['auth', 'verified'])->name('MoreDetailsJob');
+//search job functionality
+Route::post('/search',[UserController::class,'search'])->middleware(['auth', 'verified'])->name('search');
+//job apply modul
+Route::post('/AppliedJob',[UserController::class,'Job_Applied'])->middleware(['auth', 'verified'])->name('AppliedJob');
+//My job module
+Route::get('/MyJobs',[UserController::class,'MyJobs'])->middleware(['auth', 'verified'])->name('MyJobs');
+
+
 
 //Admin URl
 Route::get('/dashboard',[AdminController::class,'dashboard'])->middleware(['auth', 'verified'])->name('dashboard');
@@ -98,6 +110,18 @@ Route::get('/MangeJob',[CompanyController::class,'ManageJob',])->middleware(['au
 Route::post('/AddJob',[CompanyController::class,'AddJob'])->middleware(['auth', 'verified'])->name('AddJob');
 Route::post('/EditJob',[CompanyController::class,'EditJob'])->middleware(['auth', 'verified'])->name('EditJob');
 Route::post('/delete_job',[CompanyController::class,'DeleteJob'])->middleware(['auth', 'verified'])->name('delete_job');
+//manage job applied as application
+Route::get('/JobApplication',[CompanyController::class,'ManageJobApplication'])->middleware(['auth', 'verified'])->name('JobApplication');
+//view job application route
+Route::get('/ViewJobApplication/{id}',[CompanyController::class,'ViewJobApplication'])->middleware(['auth', 'verified'])->name('ViewJobApplication');
+//edit job application status
+Route::post('/EditJobApplication',[CompanyController::class,'EditJobApplication'])->middleware(['auth', 'verified'])->name('EditJobApplication');
+//download resume
+Route::post('/DownloadResume',[CompanyController::class,'DownloadResume'])->middleware(['auth', 'verified'])->name('DownloadResume');
+//feedback page
+Route::get('/CompanyFeedback',[CompanyController::class,'CompanyFeedback'])->middleware(['auth', 'verified'])->name('CompanyFeedback');
+Route::post('/GetCompanyFeedback',[CompanyController::class,'GetCompanyFeedback'])->middleware(['auth', 'verified'])->name('GetCompanyFeedback');
+
 
 
 

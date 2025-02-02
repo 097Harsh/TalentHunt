@@ -23,6 +23,8 @@
         }
         h2 {
             color: #4CAF50;
+            font-size: 24px;
+            margin-bottom: 20px;
         }
         .status {
             font-weight: bold;
@@ -33,6 +35,42 @@
             color: #888;
             text-align: center;
             margin-top: 30px;
+        }
+        a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Styles */
+        @media only screen and (max-width: 600px) {
+            .email-container {
+                padding: 15px;
+                margin: 10px auto;
+            }
+            h2 {
+                font-size: 20px;
+            }
+            p {
+                font-size: 14px;
+            }
+            .footer {
+                font-size: 12px;
+            }
+        }
+
+        @media only screen and (max-width: 400px) {
+            h2 {
+                font-size: 18px;
+            }
+            p {
+                font-size: 13px;
+            }
+            .footer {
+                font-size: 11px;
+            }
         }
     </style>
 </head>

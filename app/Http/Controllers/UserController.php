@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\StatusMail;
 use App\Models\Contact;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -13,6 +14,7 @@ use App\Models\City;
 use App\Models\State;
 use App\Models\UserProfile;
 use App\Models\feedback;
+use Mail;
 
 class UserController extends Controller
 {
@@ -268,6 +270,7 @@ class UserController extends Controller
              $resume_name = $file->getClientOriginalName();
              $resume_path = 'user/resume';
              $date = now();
+             //for fetch the user is already applied on this job 
              $application = DB::table('job_applied')->where('user_id','=',$id)
                                                      ->where('job_id','=',$job_id)
                                                      ->first();
@@ -275,10 +278,17 @@ class UserController extends Controller
              {
                  return redirect()->route('AllJobs')->with('status','You Already Applied This Job...');
              }
+             //in else condition if not applied record inserted.....
              else
              {
-                 $file->move($resume_path, $resume_name);
-                 $job_applied = DB::table('job_applied')->insert([
+                //for fetching the job title to send mail to the user....
+                $job_title = DB::table('job_upload')->where('job_id','=',$job_id)->first();
+                $title = $job_title->title; 
+                $name = Auth::user()->name;
+                $email = Auth::user()->email;
+                $status = "Pending";
+                $file->move($resume_path, $resume_name);
+                $job_applied = DB::table('job_applied')->insert([
                                      'application_status' => "Pending",
                                      'msg'    =>  $msg,
                                      'resume' => $resume_name,
@@ -287,7 +297,9 @@ class UserController extends Controller
                                      'user_id' => $id,
                                      'job_id'    =>  $job_id
                                  ]); 
-                 return redirect()->route('AllJobs')->with('status','Job Application Submitted Successfully...');
+                //for sending email to user when user apply the job....
+                Mail::to($email)->send(new StatusMail($title,$status,$name));
+                return redirect()->route('AllJobs')->with('status','Job Application Submitted Successfully...');
              }
          }
      }

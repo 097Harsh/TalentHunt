@@ -6,7 +6,7 @@ $count = 1;
   <!--begin::Head-->
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title> Manage course</title>
+    <title> View FeedBack</title>
     <!--begin::Primary Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="title" content="AdminLTE 4 | Simple Tables" />
@@ -51,7 +51,17 @@ $count = 1;
       <!-- Include only one version of jQuery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
+    <style>
+        .stars {
+            font-size: 24px; /* Adjust size as needed */
+        }
+        .stars .filled {
+            color: #FFD700; /* Color for filled stars */
+        }
+        .stars .empty {
+            color: #ccc; /* Color for empty stars */
+        }
+    </style>
   </head>
   <!--end::Head-->
   <!--begin::Body-->
@@ -106,12 +116,20 @@ $count = 1;
                             <td  align="center">FeedBack Message</td>
                         </tr>
                         @foreach($record as $row)
-                        <tr data-id="{{$row->f_id}}">
-                            <td>{{$count++}}</td>
-                            <td>{{$row->email}}</td>
-                            <td>{{$row->rating}}</td>
-                            <td>{{$row->msg}}</td>
-                        </tr>
+                            <tr data-id="{{$row->f_id}}">
+                                <td>{{$count++}}</td>
+                                <td>{{$row->email}}</td>
+                                <td class="stars">
+                                    @for($i = 1; $i <= 5; $i++)
+                                        @if($i <= $row->rating)
+                                            <span class="filled">★</span> <!-- Filled star -->
+                                        @else
+                                            <span class="empty">☆</span> <!-- Empty star -->
+                                        @endif
+                                    @endfor
+                                </td>
+                                <td>{{$row->msg}}</td>
+                            </tr>
                         @endforeach
                     </table>
                 </div>

@@ -99,6 +99,10 @@ Route::get('/MangeJobs',[AdminController::class,'ManageJobs',])->middleware(['au
 Route::post('/AddJobs',[AdminController::class,'AddJob'])->middleware(['auth', 'verified'])->name('AddJobs');
 Route::post('/EditJobs',[AdminController::class,'EditJob'])->middleware(['auth', 'verified'])->name('EditJobs');
 Route::post('/delete_jobs',[AdminController::class,'DeleteJob'])->middleware(['auth', 'verified'])->name('delete_jobs');
+//manage job application
+Route::get('Job-Applications',[AdminController::class,'ViewAllJobApplication'])->middleware(['auth', 'verified'])->name('Job-Applications');
+Route::get('/view_job_application/{id}', [AdminController::class, 'ViewJobApplication'])->name('view_job_application');
+Route::post('/Edit-Job-Application',[AdminController::class,'EditApplication'])->middleware(['auth', 'verified'])->name('Edit-Job-Application');
 
 //company side URL
 Route::get('/CompanyDashboard',[CompanyController::class,'dashboard'])->middleware(['auth', 'verified'])->name('CompanyDashboard');

@@ -105,70 +105,69 @@ $count = 1;
                 </div>
                 @endif
                 
-                    <table class="table table-hover">
-                        <tr>
-                            <td>Application ID</td>
-                            <td>Application Title</td>
-                            <td>Application Candidate Name</td>
-                            <td>Application Candidate Email</td>
-                            <td>Application Candidate Contact</td>
-                            <td>Application Date</td>
-                            <td>Application Status</td>
-                            <td>Application Posted Date</td>
-                            <td  align="center">Action</td>
-                        </tr>
-                       @foreach($record as $row)
-                       <tr data-id="{{$row->app_id}}">
-                              <td>{{$count++}}</td>
-                              <td>{{$row->title}}</td>
-                              <td>{{$row->candidate_name}}</td>
-                              <td>{{$row->candidate_email}}</td>
-                              <td>{{$row->candidate_contact}}</td>
-                              <td>{{$row->application_date}}</td>
-                              <td>{{$row->application_status}}</td>
-                              <td>{{$row->posted_date}}</td>
-                              <td colspan="2">
-                                <a href="{{route('ViewJobApplication',['id'=>$row->app_id])}}"><button class="btn btn-success"><i class="bi bi-eye"></i></button></a>
+                <table class="table table-hover">
+                    <tr>
+                        <td>Application ID</td>
+                        <td>Application Title</td>
+                        <td>Application Candidate Name</td>
+                        <td>Application Candidate Email</td>
+                        <td>Application Candidate Contact</td>
+                        <td>Application Date</td>
+                        <td>Application Status</td>
+                        <td>Application Posted Date</td>
+                        <td align="center">Action</td>
+                    </tr>
+                    @foreach($record as $row)
+                        <tr data-id="{{$row->app_id}}">
+                            <td>{{$count++}}</td>
+                            <td>{{$row->title}}</td>
+                            <td>{{$row->candidate_name}}</td>
+                            <td>{{$row->candidate_email}}</td>
+                            <td>{{$row->candidate_contact}}</td>
+                            <td>{{$row->application_date}}</td>
+                            <td>{{$row->application_status}}</td>
+                            <td colspan="2">
+                                <a href="{{route('view_job_application',['id'=>$row->app_id])}}"><button class="btn btn-success"><i class="bi bi-eye"></i></button></a>
                                 <button class="EditStatus btn btn-primary" data-id="{{$row->app_id}}" >Edit</button>
                               </td>
-                            </tr>
-                       @endforeach
-                    </table>
-                </div>
-                 <!-- Pagination link-->
-                 <nav aria-label="..." style="float:right;">
-                  <ul class="pagination" style="float:right;">
-                    @if ($record->onFirstPage())
-                      <li class="page-item disabled">
-                          <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
-                      </li>
-                    @else
-                      <li class="page-item">
-                          <a class="page-link" href="{{ $record->previousPageUrl() }}" tabindex="-1" aria-disabled="true">Previous</a>
-                      </li>
-                    @endif
-
-                    @foreach ($record->links()->elements[0] as $page => $url)
-                      @if ($page == $record->currentPage())
-                          <li class="page-item active" aria-current="page">
-                              <a class="page-link" href="#">{{ $page }}</a>
-                          </li>
-                      @else
-                          <li class="page-item"><a class="page-link" href="{{ $url }}">{{ $page }}</a></li>
-                      @endif
+                        </tr>
                     @endforeach
+                </table>
 
-                    @if ($record->hasMorePages())
-                      <li class="page-item">
-                          <a class="page-link" href="{{ $record->nextPageUrl() }}">Next</a>
-                      </li>
-                    @else
-                      <li class="page-item disabled">
-                          <a class="page-link" href="#">Next</a>
-                      </li>
-                    @endif
-                  </ul>
-              </nav>
+                <!-- Pagination link-->
+                <nav aria-label="..." style="float:right;">
+                    <ul class="pagination" style="float:right;">
+                        @if ($record->onFirstPage())
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                            </li>
+                        @else
+                            <li class="page-item">
+                                <a class="page-link" href="{{ $record->previousPageUrl() }}" tabindex="-1" aria-disabled="true">Previous</a>
+                            </li>
+                        @endif
+
+                        @foreach ($record->links()->elements[0] as $page => $url)
+                            @if ($page == $record->currentPage())
+                                <li class="page-item active" aria-current="page">
+                                    <a class="page-link" href="#">{{ $page }}</a>
+                                </li>
+                            @else
+                                <li class="page-item"><a class="page-link" href="{{ $url }}">{{ $page }}</a></li>
+                            @endif
+                        @endforeach
+
+                        @if ($record->hasMorePages())
+                            <li class="page-item">
+                                <a class="page-link" href="{{ $record->nextPageUrl() }}">Next</a>
+                            </li>
+                        @else
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#">Next</a>
+                            </li>
+                        @endif
+                    </ul>
+                </nav>
             </div>
             <!--end::Row-->
           </div>
@@ -182,7 +181,7 @@ $count = 1;
     <div class="modal fade" id="ApplyModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <form method="post" id="ApplyUserForm"  action="{{ route('EditJobApplication') }}">
+                    <form method="post" id="ApplyUserForm"  action="{{ route('Edit-Job-Application') }}">
                         @csrf
                         <div class="modal-header">
                             <h5 class="modal-title" id="exampleModalLabel">Apply To This Job</h5>

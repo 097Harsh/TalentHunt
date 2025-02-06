@@ -13,6 +13,8 @@ use App\Models\Skills;
 use App\Models\feedback;
 use App\Models\JobCategory;
 use Illuminate\Queue\Middleware\Skip;
+use Mail;
+use App\Mail\StatusMail;
 
 class AdminController extends Controller
 {
@@ -677,5 +679,95 @@ class AdminController extends Controller
             return redirect()->route('MangeJobs')->with('status', 'Job Deleted Successfully...');
         }
         return redirect()->route('login')->with('status','Please firtly logged in...');
+    }
+    //manage job application
+    public function ViewAllJobApplication()
+    {
+        if(Auth::check())
+        {
+            $record = DB::table('job_applied as ja')
+                        ->join('job_upload as ju', 'ju.job_id', '=', 'ja.job_id')
+                        ->join('users', 'users.id', '=', 'ja.user_id')
+                        ->join('user_profiles', 'user_profiles.user_id', '=', 'ja.user_id')
+                        ->select(
+                            'users.name as candidate_name',      
+                            'users.email as candidate_email',    
+                            'user_profiles.contact as candidate_contact',
+                            'ju.title',
+                            'ja.experince',          
+                            'ja.app_id',             
+                            'ja.resume',              
+                            'ja.application_date',               
+                            'ja.msg',                           
+                            'ja.application_status' ,             
+                        )
+                        ->paginate(5);
+            //echo "<pre>";print_r($record);die;
+            return view('admin.job_application.all_job_application',compact('record'));
+        }
+    }
+    //view single job application
+    public function ViewJobApplication($id)
+    {
+        if(Auth::check())
+        {
+            $record = DB::table('job_applied as ja')
+                        ->join('job_upload as ju', 'ju.job_id', '=', 'ja.job_id')
+                        ->join('users', 'users.id', '=', 'ja.user_id')
+                        ->join('user_profiles', 'user_profiles.user_id', '=', 'ja.user_id')
+                        ->where('ja.app_id', '=', $id)
+                        ->select(
+                            'users.name as candidate_name',      
+                            'users.email as candidate_email',    
+                            'user_profiles.contact as candidate_contact',
+                            'ja.experince',          
+                            'ja.app_id',             
+                            'ja.resume',              
+                            'ja.application_date',               
+                            'ja.msg',                           
+                            'ja.application_status' ,             
+                        )
+                        ->first();
+            //echo "<pre>";print_r($record);die;
+            return view('admin.job_application.View_job_application',compact('record'));
+        }
+    }
+    //edit job application 
+    public function EditApplication(Request $request)
+    {
+        $validation = $request->validate([
+            'status' => 'required'
+        ]);
+        if(Auth::check())
+        {
+            $id = $request->input('app_id');
+            $status = $request->input('status');
+            $record = DB::table('job_applied')->where('app_id','=',$id)
+                                             ->update([
+                                                'application_status' => $status
+                                             ]);
+                                            
+            // Now, fetch the user associated with this job application
+                $jobApplied = DB::table('job_applied')
+                ->join('users', 'job_applied.user_id', '=', 'users.id')
+                ->where('job_applied.app_id', '=', $id)
+                ->select('users.email', 'job_applied.job_id','users.name')
+                ->first();
+                $name = $jobApplied->name;
+            
+            // If a user is found, send the email
+            if ($jobApplied) {
+                // Get the job details if needed for the email
+                $job = DB::table('job_upload')->where('job_id', '=', $jobApplied->job_id)->first();
+                $title = $job->title;
+                $status = $request->input('status');
+                // Send email
+                $email = $jobApplied->email;
+                Mail::to($email)->send(new StatusMail($title,$status,$name));
+                
+            }
+            return redirect()->route('Job-Applications')->with('status','Job Application Status Updated...');
+        
+        }
     }
 }

@@ -28,7 +28,7 @@
               data-lte-toggle="treeview"
               role="menu"
               data-accordion="false">
-                <li class="nav-item menu-open">
+                <li class="nav-item ">
                     <a href="{{route('dashboard')}}" class="nav-link ">
                     <i class="nav-icon bi bi-speedometer"></i>
                     <p>
@@ -64,6 +64,14 @@
                     <a href="{{route('MangeJobs')}}" class="nav-link">
                     <i class="nav-icon bi bi-lightbulb"></i>
                     <p>Manage Jobs</p>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a href="{{route('Job-Applications')}}" class="nav-link ">
+                    <i class="nav-icon bi bi-archive"></i>
+                    <p>
+                        Manage Job Application
+                    </p>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -103,32 +111,32 @@
               data-lte-toggle="treeview"
               role="menu"
               data-accordion="false">
-                <li class="nav-item menu-open">
-                    <a href="{{route('CompanyDashboard')}}" class="nav-link active">
+                <li class="nav-item ">
+                    <a href="{{route('CompanyDashboard')}}" class="nav-link ">
                     <i class="nav-icon bi bi-speedometer"></i>
                     <p>
                         Dashboard
                     </p>
                     </a>
                 </li>
-                <li class="nav-item menu-open">
-                    <a href="{{route('MangeJob')}}" class="nav-link active">
+                <li class="nav-item ">
+                    <a href="{{route('MangeJob')}}" class="nav-link ">
                     <i class="nav-icon bi bi-briefcase"></i>
                     <p>
                         Manage Jobs
                     </p>
                     </a>
                 </li>
-                <li class="nav-item menu-open">
-                    <a href="{{route('JobApplication')}}" class="nav-link active">
+                <li class="nav-item ">
+                    <a href="{{route('JobApplication')}}" class="nav-link ">
                     <i class="nav-icon bi bi-archive"></i>
                     <p>
                         Manage Job Application
                     </p>
                     </a>
                 </li>
-                <li class="nav-item menu-open">
-                    <a href="{{route('CompanyFeedback')}}" class="nav-link active">
+                <li class="nav-item">
+                    <a href="{{route('CompanyFeedback')}}" class="nav-link ">
                     <i class="nav-icon bi bi-chat-left-text"></i>
                     <p>
                         Get Feedback

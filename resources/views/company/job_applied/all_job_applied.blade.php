@@ -105,35 +105,51 @@ $count = 1;
                 </div>
                 @endif
                 
-                    <table class="table table-hover">
+                <table class="table table-hover">
+                    <thead>
                         <tr>
-                            <td>Application ID</td>
-                            <td>Application Title</td>
-                            <td>Application Candidate Name</td>
-                            <td>Application Candidate Email</td>
-                            <td>Application Candidate Contact</td>
-                            <td>Application Date</td>
-                            <td>Application Status</td>
-                            <td>Application Posted Date</td>
-                            <td  align="center">Action</td>
+                            <th>Application ID</th>
+                            <th>Application Title</th>
+                            <th>Candidate Name</th>
+                            <th>Candidate Email</th>
+                            <th>Candidate Contact</th>
+                            <th>Application Date</th>
+                            <th>Application Status</th>
+                            <th>Application Posted Date</th>
+                            <th colspan="4">Application Action</th>
+                            <th >Application Interview</th>
                         </tr>
-                       @foreach($record as $row)
-                       <tr data-id="{{$row->app_id}}">
-                              <td>{{$count++}}</td>
-                              <td>{{$row->title}}</td>
-                              <td>{{$row->candidate_name}}</td>
-                              <td>{{$row->candidate_email}}</td>
-                              <td>{{$row->candidate_contact}}</td>
-                              <td>{{$row->application_date}}</td>
-                              <td>{{$row->application_status}}</td>
-                              <td>{{$row->posted_date}}</td>
-                              <td colspan="2">
-                                <a href="{{route('ViewJobApplication',['id'=>$row->app_id])}}"><button class="btn btn-success"><i class="bi bi-eye"></i></button></a>
-                                <button class="EditStatus btn btn-primary" data-id="{{$row->app_id}}" >Edit</button>
-                              </td>
+                    </thead>
+                    <tbody>
+                        @foreach($record as $row)
+                            <tr data-id="{{ $row->app_id }}">
+                                <td>{{ $count++ }}</td>
+                                <td>{{ $row->title }}</td>
+                                <td>{{ $row->candidate_name }}</td>
+                                <td>{{ $row->candidate_email }}</td>
+                                <td>{{ $row->candidate_contact }}</td>
+                                <td>{{ $row->application_date }}</td>
+                                <td>{{ $row->application_status }}</td>
+                                <td>{{ $row->posted_date }}</td>
+                                <td colspan="4" class="text-center">
+                                    <div class="d-inline-flex gap-2">
+                                        <a href="{{ route('ViewJobApplication', ['id' => $row->app_id]) }}" class="btn btn-secondary">
+                                            <i class="bi bi-eye"></i>
+                                        </a>
+                                        <button class="EditStatus btn btn-primary" data-id="{{ $row->app_id }}">Edit</button>
+                                    </div>
+                                </td>
+
+                                <td>
+                                    @if ($row->application_status == "Viewed")
+                                        <button class="btn btn-success">Schedule</button>
+                                    @endif
+                                </td>
                             </tr>
-                       @endforeach
-                    </table>
+                        @endforeach
+                    </tbody>
+                </table>
+
                 </div>
                  <!-- Pagination link-->
                  <nav aria-label="..." style="float:right;">

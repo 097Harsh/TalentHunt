@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Mail;
 use Carbon\Carbon;
-use App\Services\GoogleCalendarService;
+use App\Services\ZoomServices;
 use Google_Service_Calendar_Event;
 use Google_Service_Calendar;
 

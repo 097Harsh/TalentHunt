@@ -6,6 +6,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CompanyController;
 use App\Models\CompanyProfile;
+use App\Http\Controllers\ZoomMeetingController;
 use App\Models\User;
 
 Route::get('/',[UserController::class,'home'])->name('home');
@@ -129,7 +130,7 @@ Route::post('/GetCompanyFeedback',[CompanyController::class,'GetCompanyFeedback'
 
 
 //meeting link demo
-
+Route::get('/zoom/create-meeting', [ZoomMeetingController::class, 'createMeeting']);
 
 
 Route::middleware('auth')->group(function () {

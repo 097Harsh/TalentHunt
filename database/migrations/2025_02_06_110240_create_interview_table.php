@@ -17,6 +17,8 @@ return new class extends Migration
             $table->time('start_time');
             $table->time('end_time');
             $table->text('meeting_link')->nullable();
+            $table->text('meeting_id')->nullable();
+            $table->text('meeting_code')->nullable();
             $table->string('status');
             //foreign key
             $table->unsignedBigInteger('app_id');

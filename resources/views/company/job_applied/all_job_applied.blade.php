@@ -142,7 +142,7 @@ $count = 1;
 
                                 <td>
                                     @if ($row->application_status == "Viewed")
-                                        <button class="btn btn-success">Schedule</button>
+                                        <button class="interview btn btn-success" data-id="{{ $row->app_id }}">Schedule</button>
                                     @endif
                                 </td>
                             </tr>
@@ -201,7 +201,7 @@ $count = 1;
                     <form method="post" id="ApplyUserForm"  action="{{ route('EditJobApplication') }}">
                         @csrf
                         <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Apply To This Job</h5>
+                            <h5 class="modal-title" id="exampleModalLabel">Update Job Application Status</h5>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <input type="hidden" name="app_id" id="app_id">
@@ -231,8 +231,50 @@ $count = 1;
                     </form>
                 </div>
             </div>
-        </div>
+    </div>
     
+    <!-- Schedule interview Job application status Model --->
+    <div class="modal fade" id="InterViewModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <form method="post" id="ApplyUserForm"  action="{{ route('CreateMeeting') }}">
+                        @csrf
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Interview Schedule</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <input type="hidden" name="inter_id" id="inter_id">
+                        <div class="modal-body">
+                            <!-- Application Status -->
+                            <div class="mb-3">
+                                <label for="jobStatus">Interview Schedule Date:</label>
+                                <span class="error" style="color:red;">*</span>
+                                <input class="form-control" type="date" name="date" id="date">
+                                 <!-- Display Validation Error if Any -->
+                                 @error('date')
+                                    <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <!--interview start time -->
+                            <div class="mb-3">
+                              <label for="jobExperience">Schdeule Start Time:</label>
+                              <span class="error" style="color:red;">*</span>
+                              <input type="time" class="form-control" id="startTime"  name="startTime" required>
+                                <!-- Display Validation Error if Any -->
+                                @error('startTime')
+                                      <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="submit" class="btn btn-danger">Schedule</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    </div>
 
       <!--end::App Main-->
       <!--begin::Footer-->
@@ -265,15 +307,24 @@ $count = 1;
     <!--end::Required Plugin(Bootstrap 5)--><!--begin::Required Plugin(AdminLTE)-->
     <script src="{{asset('admin/assets/js/adminlte.js')}}"></script>
     <!--end::Required Plugin(AdminLTE)--><!--begin::OverlayScrollbars Configure-->
-    <script type="text/javascript">
-        $(document).ready(function(){
-           $('.EditStatus').click(function(e){
+    <script>
+        $(document).ready(function() {
+            // Handle EditStatus button click
+            $('.EditStatus').click(function(e) {
                 e.preventDefault();
                 var AppID = $(this).data('id');
-                $('#app_id').val(AppID);
+                $('#app_id').val(AppID); // Set the value for the Edit form
+                $('#ApplyModel').modal('show'); // Show the Edit modal
+            });
 
-                $('#ApplyModel').modal('show');
-           }); 
+            // Handle interview button click
+            $('.interview').click(function(e) {
+                e.preventDefault();
+                var AppID = $(this).data('id');
+                console.log(AppID); // Log the AppID for debugging
+                $('#inter_id').val(AppID); // Set the value for the Interview form
+                $('#InterViewModel').modal('show'); // Show the Interview modal
+            });
         });
     </script>
     

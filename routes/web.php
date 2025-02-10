@@ -130,7 +130,7 @@ Route::post('/GetCompanyFeedback',[CompanyController::class,'GetCompanyFeedback'
 
 
 //meeting link demo
-Route::get('/zoom/create-meeting', [ZoomMeetingController::class, 'createMeeting']);
+Route::post('/zoom/create-meeting', [ZoomMeetingController::class, 'createMeeting'])->middleware(['auth', 'verified'])->name('CreateMeeting');;
 
 
 Route::middleware('auth')->group(function () {

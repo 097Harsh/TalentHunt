@@ -12,23 +12,29 @@ class ZoomServices
     {
         $this->client = new Client([
             'base_uri' => env('ZOOM_BASE_URL'),
-            'timeout'  => 10.0,
+            'timeout'  => 30.0,
         ]);
     }
 
     private function getAccessToken()
     {
-        $response = $this->client->post('https://zoom.us/oauth/token', [
-            'auth' => [env('ZOOM_CLIENT_ID'), env('ZOOM_CLIENT_SECRET')],
-            'form_params' => [
-                'grant_type' => 'account_credentials',
-                'account_id' => env('ZOOM_ACCOUNT_ID'),
-            ],
-        ]);
-
-        $tokenData = json_decode($response->getBody(), true);
-        return $tokenData['access_token'];
+        try {
+            $response = $this->client->post('https://zoom.us/oauth/token', [
+                'auth' => [env('ZOOM_CLIENT_ID'), env('ZOOM_CLIENT_SECRET')],
+                'form_params' => [
+                    'grant_type' => 'account_credentials',
+                    'account_id' => env('ZOOM_ACCOUNT_ID'),
+                ],
+            ]);
+    
+            $tokenData = json_decode($response->getBody(), true);
+            return $tokenData['access_token'];
+        } catch (\Exception $e) {
+            \Log::error('Zoom API Error: ' . $e->getMessage());
+            throw $e;  // Re-throw the exception for further handling
+        }
     }
+    
 
 
     /*

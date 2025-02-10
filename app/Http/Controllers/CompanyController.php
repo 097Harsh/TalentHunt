@@ -303,6 +303,7 @@ class CompanyController extends Controller
                 ->where('job_applied.app_id', '=', $id)
                 ->select('users.email', 'job_applied.job_id','users.name')
                 ->first();
+                
                 $name = $jobApplied->name;
             
             // If a user is found, send the email

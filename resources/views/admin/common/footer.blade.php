@@ -6,7 +6,7 @@
         <!--begin::Copyright-->
         <strong>
           Copyright &copy; 2014-2025&nbsp;
-          <a href="{{route('dashboard')}}" class="text-decoration-none">Job Portal</a>.
+          <a href="{{route('dashboard')}}" class="text-decoration-none">TalentHunt</a>.
         </strong>
         All rights reserved.
         <!--end::Copyright-->

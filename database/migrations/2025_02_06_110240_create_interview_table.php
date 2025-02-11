@@ -21,6 +21,8 @@ return new class extends Migration
             $table->text('meeting_code')->nullable();
             $table->string('status');
             //foreign key
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('app_id');
             $table->foreign('app_id')->references('app_id')->on('job_applied')->onDelete('cascade');;
             $table->timestamps();

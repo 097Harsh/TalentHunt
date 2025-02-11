@@ -142,7 +142,7 @@ $count = 1;
 
                                 <td>
                                     @if ($row->application_status == "Viewed")
-                                        <button class="interview btn btn-success" data-id="{{ $row->app_id }}">Schedule</button>
+                                        <button class="interview btn btn-success" data-id="{{ $row->app_id }}"> Interview</button>
                                     @endif
                                 </td>
                             </tr>
@@ -213,7 +213,6 @@ $count = 1;
                                 <select class="form-control selectpicker" name="status" id="status">
                                     <option value="" disabled selected>-----Select Job Status-----</option>
                                     <option value="Viewed">Viewed</option>
-                                    <option value="Approved">Approved</option>
                                     <option value="Hired">Hired</option>
                                     <option value="Rejected">Rejected</option>
                                 </select>

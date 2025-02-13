@@ -23,7 +23,18 @@ class CompanyController extends Controller
         //echo Auth::user()->name;
         if(Auth::check())
         {
-            return view('company.dashboard');
+            $id = Auth::user()->id;
+            $jobs = DB::table('job_upload')->where('company_id','=',$id)->count();
+            // Count job applications for jobs posted by the authenticated company
+            $jobApplications = DB::table('job_upload')
+                            ->join('job_applied', 'job_upload.job_id', '=', 'job_applied.job_id')
+                            ->where('job_upload.company_id', '=', $id) // Filter by company ID
+                            ->count();
+            $users = DB::table('users')->where('role_id','=',2)->count();
+            $interview = DB::table('interview')->where('user_id','=',$id)->count();
+            
+           
+            return view('company.dashboard',compact('jobs','jobApplications','users','interview'));
         }
         return redirect()->route('login')->with('status','Please firtly logged in...');
     }

@@ -101,56 +101,62 @@
               <div class="col-lg-3 col-6">
                 <!--begin::Small Box Widget 1-->
                 <div class="small-box text-bg-primary">
-                  <div class="inner">
-                    <h3>150</h3>
-                    <p>New Orders</p>
-                  </div>
-                  <svg
-                    class="small-box-icon"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z"
-                    ></path>
-                  </svg>
-                  <a
-                    href="#"
-                    class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover"
-                  >
-                    More info <i class="bi bi-link-45deg"></i>
-                  </a>
+                    <div class="inner">
+                        <h3>{{ $jobApplications }}</h3> <!-- Display total applications received -->
+                        <p>Job Applications Received</p> <!-- Updated title -->
+                    </div>
+                    <svg
+                        class="small-box-icon"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                    >
+                        <path 
+                            fill-rule="evenodd" 
+                            d="M6 2a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8.828a2 2 0 00-.586-1.414l-4.828-4.828A2 2 0 0012.172 2H6zm6 1.414L17.586 9H14a2 2 0 01-2-2V3.414zM8.707 14.707a1 1 0 01-1.414-1.414l2.5-2.5a1 1 0 011.414 0l5.5 5.5a1 1 0 01-1.414 1.414l-4.793-4.793-1.793 1.793z" 
+                            clip-rule="evenodd"
+                        />
+                    </svg>
+                    <a
+                        href="#"
+                        class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover"
+                    >
+                        More info <i class="bi bi-link-45deg"></i>
+                    </a>
                 </div>
+
+
                 <!--end::Small Box Widget 1-->
               </div>
               <!--end::Col-->
               <div class="col-lg-3 col-6">
                 <!--begin::Small Box Widget 2-->
                 <div class="small-box text-bg-success">
-                  <div class="inner">
-                    <h3>53<sup class="fs-5">%</sup></h3>
-                    <p>Bounce Rate</p>
-                  </div>
-                  <svg
-                    class="small-box-icon"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                  >
-                    <path
-                      d="M18.375 2.25c-1.035 0-1.875.84-1.875 1.875v15.75c0 1.035.84 1.875 1.875 1.875h.75c1.035 0 1.875-.84 1.875-1.875V4.125c0-1.036-.84-1.875-1.875-1.875h-.75zM9.75 8.625c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v11.25c0 1.035-.84 1.875-1.875 1.875h-.75a1.875 1.875 0 01-1.875-1.875V8.625zM3 13.125c0-1.036.84-1.875 1.875-1.875h.75c1.036 0 1.875.84 1.875 1.875v6.75c0 1.035-.84 1.875-1.875 1.875h-.75A1.875 1.875 0 013 19.875v-6.75z"
-                    ></path>
-                  </svg>
-                  <a
-                    href="#"
-                    class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover"
-                  >
-                    More info <i class="bi bi-link-45deg"></i>
-                  </a>
+                    <div class="inner">
+                        <h3>{{ $jobs }}</h3> <!-- Display total jobs posted -->
+                        <p>Jobs Posted</p> <!-- Updated title -->
+                    </div>
+                    <svg
+                        class="small-box-icon"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                    >
+                        <path 
+                            d="M10 2a2 2 0 00-2 2v1H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V8a3 3 0 00-3-3h-3V4a2 2 0 00-2-2h-4zm0 3V4h4v1h-4zM4 8h16v10a1 1 0 01-1 1H5a1 1 0 01-1-1V8zm2 3a1 1 0 011-1h10a1 1 0 011 1v4a1 1 0 01-1 1H7a1 1 0 01-1-1v-4z"
+                        />
+                    </svg>
+                    <a
+                        href="#"
+                        class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover"
+                    >
+                        More info <i class="bi bi-link-45deg"></i>
+                    </a>
                 </div>
+
+
                 <!--end::Small Box Widget 2-->
               </div>
               <!--end::Col-->
@@ -158,8 +164,8 @@
                 <!--begin::Small Box Widget 3-->
                 <div class="small-box text-bg-warning">
                   <div class="inner">
-                    <h3>1</h3>
-                    <p>User Registrations</p>
+                    <h3>{{ $users }}</h3>
+                    <p>Total Users </p>
                   </div>
                   <svg
                     class="small-box-icon"
@@ -185,35 +191,29 @@
               <div class="col-lg-3 col-6">
                 <!--begin::Small Box Widget 4-->
                 <div class="small-box text-bg-danger">
-                  <div class="inner">
-                    <h3>65</h3>
-                    <p>Unique Visitors</p>
-                  </div>
-                  <svg
-                    class="small-box-icon"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                  >
-                    <path
-                      clip-rule="evenodd"
-                      fill-rule="evenodd"
-                      d="M2.25 13.5a8.25 8.25 0 018.25-8.25.75.75 0 01.75.75v6.75H18a.75.75 0 01.75.75 8.25 8.25 0 01-16.5 0z"
-                    ></path>
-                    <path
-                      clip-rule="evenodd"
-                      fill-rule="evenodd"
-                      d="M12.75 3a.75.75 0 01.75-.75 8.25 8.25 0 018.25 8.25.75.75 0 01-.75.75h-7.5a.75.75 0 01-.75-.75V3z"
-                    ></path>
-                  </svg>
-                  <a
-                    href="#"
-                    class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover"
-                  >
-                    More info <i class="bi bi-link-45deg"></i>
-                  </a>
+                    <div class="inner">
+                        <h3>{{ $interview }}</h3>
+                        <p>Interview Schedules</p> <!-- Updated title -->
+                    </div>
+                    <svg
+                        class="small-box-icon"
+                        fill="currentColor"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                    >
+                        <path 
+                            d="M6 2a1 1 0 011 1v1h10V3a1 1 0 112 0v1h1a2 2 0 012 2v14a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2h1V3a1 1 0 112 0v1zm13 4H5v12a1 1 0 001 1h12a1 1 0 001-1V6zM11 10a1 1 0 011-1h3a1 1 0 110 2h-2v2a1 1 0 11-2 0v-3z"
+                        />
+                    </svg>
+                    <a
+                        href="#"
+                        class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover"
+                    >
+                        More info <i class="bi bi-link-45deg"></i>
+                    </a>
                 </div>
+
                 <!--end::Small Box Widget 4-->
               </div>
               <!--end::Col-->

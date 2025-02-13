@@ -135,6 +135,14 @@
                     </p>
                     </a>
                 </li>
+                <li class="nav-item ">
+                    <a href="{{route('JobApplication')}}" class="nav-link ">
+                    <i class="nav-icon bi bi-calendar-check"></i>
+                    <p>
+                        Manage Interviews
+                    </p>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href="{{route('CompanyFeedback')}}" class="nav-link ">
                     <i class="nav-icon bi bi-chat-left-text"></i>

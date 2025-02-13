@@ -24,7 +24,10 @@ class AdminController extends Controller
         if(Auth::check())
         {   
             $users = DB::table('users')->where('role_id','=','2')->count();
-            return view('admin.dashboard',compact('users'));
+            $jobs = DB::table('job_upload')->count();
+            $job_app = DB::table('job_applied')->count();
+            $interview = DB::table('interview')->count();
+            return view('admin.dashboard',compact('users','jobs','job_app','interview'));
         }
         return redirect()->route('login')->with('status','Please firtly logged in...');
     }

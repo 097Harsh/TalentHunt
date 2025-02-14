@@ -79,24 +79,28 @@ $city_id = $user_profile->city_id;
                     <form action="{{route('UpdateProfile')}}" class="pt-lg-4" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="form-group">
+                        <label for="number">Enter Your Contact Number</label>
                             <input type="number" class="form-control" name="contact" id="contact" placeholder="Enter your contact" value="{{ $user_profile->contact }}" required>
                             @error('contact')
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group">
+                        <label for="objective">Enter Your Objective </label>
                             <textarea name="objective" id="objective" class="form-control" placeholder="Enter your objective" required>{{ $user_profile->objective }}</textarea>
                             @error('objective') 
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group">
+                        <label for="address">Enter Your Address </label>
                             <textarea name="address" id="address" class="form-control" placeholder="Enter your address" required>{{ $user_profile->address }}</textarea>
                             @error('address') 
                                 <span class="text-danger">{{ $message }}</span>
                             @enderror
                         </div>
                         <div class="form-group">
+                        <label for="designation">Enter Your Designation </label>
                             <input type="text" class="form-control" name="designation" id="designation" placeholder="Enter your Designation" value="{{ $user_profile->designation }}" required>
                             @error('designation')
                                 <span class="text-danger">{{ $message }}</span>
@@ -127,6 +131,7 @@ $city_id = $user_profile->city_id;
 
                          <!-- Multi-Select Course Dropdown -->
                         <div class="form-group">
+                        <label for="courses">Enter Your Course </label>
                             <div class="dropdown-wrapper">
                                 <select class="form-control selectpicker" name="courses[]" id="courses" multiple>
                                     <option value="" disabled selected>-----Select Course-----</option>
@@ -145,6 +150,7 @@ $city_id = $user_profile->city_id;
 
                         <!-- Multi-Select Skill Dropdown -->
                         <div class="form-group">
+                        <label for="skill_id">Enter Your Skill </label>
                             <div class="dropdown-wrapper">
                                 <select class="form-control selectpicker" name="skill_id[]" id="skill_id" multiple required>
                                     <option value="" disabled selected>-----Select Skill Set-----</option>
@@ -164,6 +170,7 @@ $city_id = $user_profile->city_id;
 
                         <!-- Country Dropdown -->
                         <div class="form-group">
+                        <label for="count_id">Enter Your Country </label>
                             <div class="dropdown-wrapper">
                                 <select class="form-control" name="count_id" id="count_id" required="">
                                     <option value="" disabled selected>-----Select an Country-----</option>
@@ -177,6 +184,7 @@ $city_id = $user_profile->city_id;
                         
                         <!-- State Dropdown -->
                         <div class="form-group">
+                        <label for="state_id">Enter Your State </label>
                             <div class="dropdown-wrapper">
                                 <select class="form-control" name="state_id" id="state_id" required="">
                                     <option value="" disabled selected>-----Select a State-----</option>
@@ -190,6 +198,7 @@ $city_id = $user_profile->city_id;
                         
                         <!-- City Dropdown -->
                         <div class="form-group">
+                        <label for="city_id">Enter Your City </label>
                             <div class="dropdown-wrapper">
                                 <select class="form-control" name="city_id" id="city_id" required="">
                                     <option value="" disabled selected>-----Select a City-----</option>

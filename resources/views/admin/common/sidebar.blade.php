@@ -136,7 +136,7 @@
                     </a>
                 </li>
                 <li class="nav-item ">
-                    <a href="{{route('JobApplication')}}" class="nav-link ">
+                    <a href="{{route('ManageInterview')}}" class="nav-link ">
                     <i class="nav-icon bi bi-calendar-check"></i>
                     <p>
                         Manage Interviews

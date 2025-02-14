@@ -127,7 +127,7 @@ Route::post('/DownloadResume',[CompanyController::class,'DownloadResume'])->midd
 Route::get('/CompanyFeedback',[CompanyController::class,'CompanyFeedback'])->middleware(['auth', 'verified'])->name('CompanyFeedback');
 Route::post('/GetCompanyFeedback',[CompanyController::class,'GetCompanyFeedback'])->middleware(['auth', 'verified'])->name('GetCompanyFeedback');
 //Manage Interview
-
+Route::get('/ManageInterview',[CompanyController::class,'AllInterview'])->middleware(['auth', 'verified'])->name('ManageInterview');
 
 
 //meeting link demo

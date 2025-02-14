@@ -369,6 +369,15 @@ class CompanyController extends Controller
            return redirect()->route('CompanyFeedback')->with('status','Feedback sended....');
         }
     }
-    //creating a google meeting for interview
+    //Manage Interview
+    public function AllInterview()
+    {
+        if(Auth::check())
+        {
+            $id = Auth::user()->id;
+            $record = DB::table('interview')->where('user_id','=',$id)->paginate(5);
+            return view('company.interview.all_interview',compact('record'));
+        }
+    }
     
 }

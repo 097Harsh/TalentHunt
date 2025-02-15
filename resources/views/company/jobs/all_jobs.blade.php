@@ -446,14 +446,15 @@ $count = 1;
                   <label for="jobSkills">Job Skills:</label>
                   <span class="error" style="color:red;">*</span>
                   <select class="form-control selectpicker" name="Editskill_id[]" id="Editskill_id" multiple required>
-                      <option value="" disabled>Select Skills</option>
-                      @foreach($skills as $skill)
-                          <option value="{{ $skill->skill_name }}" 
-                              @if(in_array($skill->skill_name, explode(',', $row->job_skill_required))) selected @endif>
-                              {{ $skill->skill_name }}
-                          </option>
-                      @endforeach
+                    <option value="" disabled>Select Skills</option>
+                    @foreach($skills as $skill)
+                        <option value="{{ $skill->skill_name }}" 
+                            @if(isset($row) && in_array($skill->skill_name, explode(',', $row->job_skill_required))) selected @endif>
+                            {{ $skill->skill_name }}
+                        </option>
+                    @endforeach
                   </select>
+
                 </div>
 
                 <!-- Job Status -->

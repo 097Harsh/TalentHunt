@@ -16,6 +16,7 @@ return new class extends Migration
             $table->text('msg');
             $table->string('resume');
             $table->string('experince');
+            $table->string('application_status');
             $table->date('application_date');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');

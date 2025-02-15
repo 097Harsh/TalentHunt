@@ -109,15 +109,13 @@ $count = 1;
                     <thead>
                         <tr>
                             <th>Application ID</th>
-                            <th>Application Title</th>
-                            <th>Candidate Name</th>
-                            <th>Candidate Email</th>
-                            <th>Candidate Contact</th>
-                            <th>Application Date</th>
-                            <th>Application Status</th>
-                            <th>Application Posted Date</th>
-                            <th colspan="4">Application Action</th>
-                            <th >Application Interview</th>
+                            <th>Interview Date </th>
+                            <th>Meeting Link </th>
+                            <th>Meeting ID </th>
+                            <th>Meeting Code </th>
+                            <th>Meeting Status </th>
+                            <th>Meeting Time </th>
+                            <th colspan="4">Meeting Action</th>
                         </tr>
                     </thead>
                     <tbody>

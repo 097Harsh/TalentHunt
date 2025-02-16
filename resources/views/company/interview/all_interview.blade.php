@@ -110,12 +110,11 @@ $count = 1;
                         <tr>
                             <th>Application ID</th>
                             <th>Interview Date </th>
-                            <th>Meeting Link </th>
                             <th>Meeting ID </th>
                             <th>Meeting Code </th>
                             <th>Meeting Status </th>
                             <th>Meeting Time </th>
-                            <th colspan="4">Meeting Action</th>
+                            <th colspan="4"><center>Meeting Action</center></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -123,17 +122,18 @@ $count = 1;
                             <tr data-id="{{ $row->app_id }}">
                                 <td>{{ $count++ }}</td>
                                 <td>{{ $row->schedule_date }}</td>
-                                <td>{{ $row->meeting_link }}</td>
                                 <td>{{ $row->meeting_id }}</td>
                                 <td>{{ $row->meeting_code }}</td>
                                 <td>{{ $row->status }}</td>
                                 <td>{{ $row->start_time.""."To"."".$row->end_time }}</td>
                                 <td colspan="4" class="text-center">
                                     <div class="d-inline-flex gap-2">
-                                        <a href="{{ route('ViewJobApplication', ['id' => $row->interview_id]) }}" class="btn btn-secondary">
-                                            <i class="bi bi-eye"></i>
-                                        </a>
-                                        <button class="EditStatus btn btn-primary" data-id="{{ $row->interview_id }}">Edit</button>
+                                      @if($row->status != 'Interview Completed')
+                                        <a href="{{ $row->meeting_link }}" class="btn btn-success">Join</a>
+                                        <a href="{{ route('InterviewStatus',['id'=> $row->interview_id]) }}"><button class="btn btn-primary">Completed</button></a>
+                                      @else
+                                        {{ $row->status }}  
+                                      @endif
                                     </div>
                                 </td>
                             </tr>

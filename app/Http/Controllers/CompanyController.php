@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Mail\StatusMail;
 use App\Models\CompanyProfile;
 use App\Models\feedback;
+use App\Models\InterViewModel;
 use App\Models\Skills;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -379,5 +380,16 @@ class CompanyController extends Controller
             return view('company.interview.all_interview',compact('record'));
         }
     }
-    
+    //interview status update
+    public function interview_status($id)
+    {
+       $application = DB::table('interview')->where('interview_id','=',$id)->first();
+       $app_id = $application->app_id;
+       if($app_id)
+       {
+            $interview_Status = DB::table('interview')->where('interview_id','=',$id)->update(['status'=>'Interview Completed']);
+            $job_Status = DB::table('job_applied')->where('app_id','=',$app_id)->update(['application_status'=>'Interview Completed']);
+            return redirect()->route('ManageInterview')->with('status','Status Updated successfully');
+       }
+    }
 }

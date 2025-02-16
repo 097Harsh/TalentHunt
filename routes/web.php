@@ -131,7 +131,11 @@ Route::get('/ManageInterview',[CompanyController::class,'AllInterview'])->middle
 
 
 //meeting link demo
-Route::post('/zoom/create-meeting', [ZoomMeetingController::class, 'createMeeting'])->middleware(['auth', 'verified'])->name('CreateMeeting');;
+Route::post('/zoom/create-meeting', [ZoomMeetingController::class, 'createMeeting'])->middleware(['auth', 'verified'])->name('CreateMeeting');
+//interview status route
+Route::get('/interview-status/{id}',[CompanyController::class,'interview_status'])->middleware(['auth', 'verified'])->name('InterviewStatus');
+
+
 
 
 Route::middleware('auth')->group(function () {

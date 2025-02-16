@@ -143,6 +143,8 @@ $count = 1;
                                 <td>
                                     @if ($row->application_status == "Viewed")
                                         <button class="interview btn btn-success" data-id="{{ $row->app_id }}"> Interview</button>
+                                    @else
+                                    {{ $row->application_status }}
                                     @endif
                                 </td>
                             </tr>

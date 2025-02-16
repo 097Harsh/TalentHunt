@@ -104,6 +104,11 @@ Route::post('/delete_jobs',[AdminController::class,'DeleteJob'])->middleware(['a
 Route::get('Job-Applications',[AdminController::class,'ViewAllJobApplication'])->middleware(['auth', 'verified'])->name('Job-Applications');
 Route::get('/view_job_application/{id}', [AdminController::class, 'ViewJobApplication'])->name('view_job_application');
 Route::post('/Edit-Job-Application',[AdminController::class,'EditApplication'])->middleware(['auth', 'verified'])->name('Edit-Job-Application');
+//View all interview log....
+Route::get('/AllInterview',[AdminController::class,'AllInterview'])->middleware(['auth', 'verified'])->name('AllInterview');
+
+
+
 
 //company side URL
 Route::get('/CompanyDashboard',[CompanyController::class,'dashboard'])->middleware(['auth', 'verified'])->name('CompanyDashboard');

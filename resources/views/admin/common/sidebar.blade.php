@@ -86,6 +86,14 @@
                     <p>Manage Job Department</p>
                     </a>
                 </li>
+                <li class="nav-item ">
+                    <a href="{{route('AllInterview')}}" class="nav-link ">
+                    <i class="nav-icon bi bi-calendar-check"></i>
+                    <p>
+                        View Interviews
+                    </p>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a href="{{route('ViewFeedBack')}}" class="nav-link">
                     <i class="nav-icon bi bi-chat-square-dots"></i>

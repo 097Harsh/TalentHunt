@@ -32,9 +32,11 @@ class CompanyController extends Controller
                             ->where('job_upload.company_id', '=', $id) // Filter by company ID
                             ->count();
             $users = DB::table('users')->where('role_id','=',2)->count();
-            $interview = DB::table('interview')->where('user_id','=',$id)->count();
-            
-           
+            $interview = DB::table('interview')->where([
+                                                            'user_id' => $id,
+                                                            'status' => 'schedule'
+                                                        ])->count();
+                                
             return view('company.dashboard',compact('jobs','jobApplications','users','interview'));
         }
         return redirect()->route('login')->with('status','Please firtly logged in...');
@@ -383,13 +385,16 @@ class CompanyController extends Controller
     //interview status update
     public function interview_status($id)
     {
-       $application = DB::table('interview')->where('interview_id','=',$id)->first();
-       $app_id = $application->app_id;
-       if($app_id)
+       if(Auth::check())
        {
-            $interview_Status = DB::table('interview')->where('interview_id','=',$id)->update(['status'=>'Interview Completed']);
-            $job_Status = DB::table('job_applied')->where('app_id','=',$app_id)->update(['application_status'=>'Interview Completed']);
-            return redirect()->route('ManageInterview')->with('status','Status Updated successfully');
+            $application = DB::table('interview')->where('interview_id','=',$id)->first();
+            $app_id = $application->app_id;
+            if($app_id)
+            {
+                $interview_Status = DB::table('interview')->where('interview_id','=',$id)->update(['status'=>'Interview Completed']);
+                $job_Status = DB::table('job_applied')->where('app_id','=',$app_id)->update(['application_status'=>'Interview Completed']);
+                return redirect()->route('ManageInterview')->with('status','Status Updated successfully');
+            }
        }
     }
 }

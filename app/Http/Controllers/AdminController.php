@@ -773,4 +773,13 @@ class AdminController extends Controller
         
         }
     }
+    //view all interview logs.....
+    public function AllInterview()
+    {
+        if(Auth::check())
+        {
+            $record = DB::table('interview')->paginate(5);
+            return view('admin.interview.all_interview',compact('record'));
+        }
+    }
 }

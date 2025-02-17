@@ -801,4 +801,17 @@ class AdminController extends Controller
             return view('admin.interview.all_interview',compact('record'));
         }
     }
+    //apply filter on interview status from like schedule or completed.....
+    public function InterviewFilter(Request $request)
+    {
+        $validation = $request->validate([
+                                    'status'=>'string'
+                                ]);
+        if(Auth::check())
+        {
+            $status = $request->input('status');
+            $record = DB::table('interview')->where('status','=',$status)->paginate(5);
+            return view('admin.interview.all_interview',compact('record'));
+        }
+    }
 }

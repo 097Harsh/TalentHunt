@@ -77,6 +77,31 @@ $count = 1;
         <div class="app-content-header">
           <!--begin::Container-->
           <div class="container-fluid">
+              <form action="{{ url('/Filterinterview') }}" method="post" id="AddUserForm">
+                  @csrf
+                  <div class="modal-body ">
+                      <!-- Select field for the filter -->
+                      <div class="mb-3 mt-3">
+                          <label for="filter">Apply Filter On Interview:</label>
+                          <span class="error" style="color:red;">*</span>
+                          <div class="mb-6 mt-6 d-flex justify-content-between col-lg-12">
+                              <!-- Filter dropdown -->
+                              <select class="form-control" name="status" id="status">
+                                  <option value="choose" >Choose Status</option>
+                                  <option value="Schedule">Schedule</option>
+                                  <option value=" Interview Completed">Interview Completed</option>
+                              </select>
+
+                              <!-- Submit button to apply the selected filter -->
+                              <button class="btn btn-primary" type="submit" name="submit" id="submit">Apply</button>
+                          </div>
+                          <!-- Display Validation Error if Any -->
+                          @error('status')
+                              <div class="text-danger">{{ $message }}</div>
+                          @enderror
+                        </div>
+                    </div>
+              </form>
             <!--begin::Row-->
             <div class="row">
               <div class="col-sm-6"><h3 class="mb-0">View All Interviews </h3></div>

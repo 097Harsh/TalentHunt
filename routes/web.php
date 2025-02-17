@@ -107,7 +107,8 @@ Route::get('/view_job_application/{id}', [AdminController::class, 'ViewJobApplic
 Route::post('/Edit-Job-Application',[AdminController::class,'EditApplication'])->middleware(['auth', 'verified'])->name('Edit-Job-Application');
 //View all interview log....
 Route::get('/AllInterview',[AdminController::class,'AllInterview'])->middleware(['auth', 'verified'])->name('AllInterview');
-
+//filter in interview log
+Route::post('/Filterinterview',[AdminController::class,'InterviewFilter'])->middleware(['auth', 'verified'])->name('Filterinterview');
 
 
 

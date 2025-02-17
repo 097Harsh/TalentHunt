@@ -71,6 +71,7 @@ Route::get('/EditSkill/{id}',[AdminController::class,'editSkill'])->middleware([
 Route::post('/updatingRecord/{id}',[AdminController::class,'UpdatingSkill'])->middleware(['auth', 'verified'])->name('UpdatingSkill');
 //view feedback 
 Route::get('ViewFeedBack',[AdminController::class,'ViewFeedBack'])->middleware(['auth', 'verified'])->name('ViewFeedBack');
+Route::post('/ApplyFilter',[AdminController::class,'filter_feedback'])->middleware(['auth', 'verified'])->name('ApplyFilter');
 //view contact
 Route::get('/ViewContact',[AdminController::class,'contact'])->middleware(['auth', 'verified'])->name('ViewContact');
 //Manage company

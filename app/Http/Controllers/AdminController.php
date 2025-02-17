@@ -315,6 +315,25 @@ class AdminController extends Controller
             return view('admin.ViewFeedBack',compact('record'));
         }
     }
+    //apply fileter on feedback
+    public function filter_feedback(Request $request)
+    {
+        $validation = $request->validate([
+                            'role'=>'string',
+                        ]);
+        if(Auth::check())
+        {
+            $role = $request->input('role');
+            $roles = DB::table('role')->where('role_name','=',$role)->first();
+            $role_id = $roles->role_id;
+            $record = DB::table('feedback')
+                            ->join('users', 'feedback.user_id', '=', 'users.id')  
+                            ->select('feedback.*', 'users.email')  
+                            ->where('users.role_id','=',$role_id)
+                            ->paginate(5);
+            return view('admin.ViewFeedBack',compact('record'));
+        }
+    }
     //view contact inqury
     public function contact()
     {

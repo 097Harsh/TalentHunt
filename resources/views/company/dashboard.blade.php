@@ -118,12 +118,7 @@
                             clip-rule="evenodd"
                         />
                     </svg>
-                    <a
-                        href="#"
-                        class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover"
-                    >
-                        More info <i class="bi bi-link-45deg"></i>
-                    </a>
+                    
                 </div>
 
 
@@ -148,12 +143,7 @@
                             d="M10 2a2 2 0 00-2 2v1H5a3 3 0 00-3 3v10a3 3 0 003 3h14a3 3 0 003-3V8a3 3 0 00-3-3h-3V4a2 2 0 00-2-2h-4zm0 3V4h4v1h-4zM4 8h16v10a1 1 0 01-1 1H5a1 1 0 01-1-1V8zm2 3a1 1 0 011-1h10a1 1 0 011 1v4a1 1 0 01-1 1H7a1 1 0 01-1-1v-4z"
                         />
                     </svg>
-                    <a
-                        href="#"
-                        class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover"
-                    >
-                        More info <i class="bi bi-link-45deg"></i>
-                    </a>
+                    
                 </div>
 
 
@@ -178,12 +168,7 @@
                       d="M6.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM3.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM19.75 7.5a.75.75 0 00-1.5 0v2.25H16a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H22a.75.75 0 000-1.5h-2.25V7.5z"
                     ></path>
                   </svg>
-                  <a
-                    href="#"
-                    class="small-box-footer link-dark link-underline-opacity-0 link-underline-opacity-50-hover"
-                  >
-                    More info <i class="bi bi-link-45deg"></i>
-                  </a>
+                  
                 </div>
                 <!--end::Small Box Widget 3-->
               </div>
@@ -206,12 +191,7 @@
                             d="M6 2a1 1 0 011 1v1h10V3a1 1 0 112 0v1h1a2 2 0 012 2v14a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2h1V3a1 1 0 112 0v1zm13 4H5v12a1 1 0 001 1h12a1 1 0 001-1V6zM11 10a1 1 0 011-1h3a1 1 0 110 2h-2v2a1 1 0 11-2 0v-3z"
                         />
                     </svg>
-                    <a
-                        href="#"
-                        class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover"
-                    >
-                        More info <i class="bi bi-link-45deg"></i>
-                    </a>
+                    
                 </div>
 
                 <!--end::Small Box Widget 4-->

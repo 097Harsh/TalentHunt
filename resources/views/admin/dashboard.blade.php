@@ -107,9 +107,7 @@
                         <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path d="M8.25 2.25a.75.75 0 000 1.5h7.5a.75.75 0 000-1.5h-7.5zM3 6.75A2.25 2.25 0 015.25 4.5h13.5A2.25 2.25 0 0121 6.75v12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 18.75v-12zM12 9a3 3 0 110 6 3 3 0 010-6z"></path>
                         </svg>
-                        <a href="#" class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                            More info <i class="bi bi-link-45deg"></i>
-                        </a>
+                        
                     </div>
                 </div>
 
@@ -123,9 +121,7 @@
                         <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path d="M3.75 4.5A2.25 2.25 0 016 2.25h12a2.25 2.25 0 012.25 2.25V7.5H3.75V4.5zM3 9.75V18a2.25 2.25 0 002.25 2.25h13.5A2.25 2.25 0 0021 18V9.75H3z"></path>
                         </svg>
-                        <a href="#" class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                            More info <i class="bi bi-link-45deg"></i>
-                        </a>
+                        
                     </div>
                 </div>
 
@@ -147,9 +143,7 @@
                             d="M6.25 6.375a4.125 4.125 0 118.25 0 4.125 4.125 0 01-8.25 0zM3.25 19.125a7.125 7.125 0 0114.25 0v.003l-.001.119a.75.75 0 01-.363.63 13.067 13.067 0 01-6.761 1.873c-2.472 0-4.786-.684-6.76-1.873a.75.75 0 01-.364-.63l-.001-.122zM19.75 7.5a.75.75 0 00-1.5 0v2.25H16a.75.75 0 000 1.5h2.25v2.25a.75.75 0 001.5 0v-2.25H22a.75.75 0 000-1.5h-2.25V7.5z"
                           ></path>
                         </svg>
-                        <a href="#" class="small-box-footer link-dark link-underline-opacity-0 link-underline-opacity-50-hover">
-                            More info <i class="bi bi-link-45deg"></i>
-                        </a>
+                        
                     </div>
                 </div>
 
@@ -163,9 +157,7 @@
                         <svg class="small-box-icon" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <path d="M6 2a1 1 0 011 1v1h10V3a1 1 0 112 0v1h1a2 2 0 012 2v14a2 2 0 01-2 2H4a2 2 0 01-2-2V6a2 2 0 012-2h1V3a1 1 0 112 0v1zm13 4H5v12a1 1 0 001 1h12a1 1 0 001-1V6zM11 10a1 1 0 011-1h3a1 1 0 110 2h-2v2a1 1 0 11-2 0v-3z"></path>
                         </svg>
-                        <a href="#" class="small-box-footer link-light link-underline-opacity-0 link-underline-opacity-50-hover">
-                            More info <i class="bi bi-link-45deg"></i>
-                        </a>
+                        
                     </div>
                 </div>
             </div>

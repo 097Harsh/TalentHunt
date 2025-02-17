@@ -99,6 +99,32 @@ $count = 1;
         <div class="app-content">
           <!--begin::Container-->
           <div class="container-fluid">
+          <form action="{{ url('/ApplyFilter') }}" method="post" id="AddUserForm">
+              @csrf
+              <div class="modal-body ">
+                  <!-- Select field for the filter -->
+                  <div class="mb-3 mt-3">
+                      <label for="filter">Apply Filter On FeedBack:</label>
+                      <span class="error" style="color:red;">*</span>
+                      <div class="mb-6 mt-6 d-flex justify-content-between col-lg-12">
+                          <!-- Filter dropdown -->
+                          <select class="form-control" name="role" id="role">
+                              <option value="choose" >Choose Role</option>
+                              <option value="User">User</option>
+                              <option value=" Company">Company</option>
+                          </select>
+
+                          <!-- Submit button to apply the selected filter -->
+                          <button class="btn btn-primary" type="submit" name="submit" id="submit">Apply</button>
+                      </div>
+                      <!-- Display Validation Error if Any -->
+                      @error('role')
+                          <div class="text-danger">{{ $message }}</div>
+                      @enderror
+                     </div>
+                </div>
+          </form>
+
             <!--begin::Row-->
             <div class="row">
                 <div class="container">

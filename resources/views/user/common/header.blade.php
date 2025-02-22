@@ -1,7 +1,7 @@
 <header id="site-header" class="fixed-top">
     <div class="container">
         <nav class="navbar navbar-expand-lg navbar-light stroke py-lg-0">
-            <h1><a class="navbar-brand pe-xl-5 pe-lg-4" href="index.html">
+            <h1><a class="navbar-brand pe-xl-5 pe-lg-4" href="{{ route('home') }}">
                     <span class="sublog">Talent</span>Hunt
                 </a></h1>
             <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">

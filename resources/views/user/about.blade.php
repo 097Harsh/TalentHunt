@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Job portal: Contact About </title>
+    <title> About </title>
     <!--/google-fonts -->
     <link href="//fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <!--//google-fonts -->
@@ -26,7 +26,7 @@
                     <div class="w3breadcrumb-info mt-5">
                         <h2 class="w3ltop-title pt-4">About Us</h2>
                         <ul class="breadcrumbs-custom-path">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="{{ route('home') }}">Home</a></li>
                             <li class="active"><span class="fas fa-angle-double-right mx-2"></span> About </li>
                         </ul>
                     </div>
@@ -50,8 +50,8 @@
                         <p>From tech to marketing, healthcare to engineering, we provide access to jobs across various industries. Join thousands of other users who have found their dream jobs with us, or post your job vacancies to attract top talent to your organization.</p>
 
                         <div class="w3l-buttons mt-sm-5 mt-4">
-                            <a class="btn btn-primary btn-style me-2" href="about.html">Learn More About Us</a>
-                            <a class="btn btn-outline-primary btn-style mr-2" href="jobs.html">Browse Jobs</a>
+                            <a class="btn btn-primary btn-style me-2" href="{{ route('about') }}">Learn More About Us</a>
+                            <a class="btn btn-outline-primary btn-style mr-2" href="{{ route('AllJobs') }}">Browse Jobs</a>
                         </div>
                     </div>
 

@@ -9,9 +9,7 @@
                                     <span class="sublog">Job</span>Portal
                                 </a></h2>
                         </div>
-                        <p>Lorem ipsum dolor sit, amet consectetur elit.Pellen tesque libero ut justo, ultrices in ligula accusantium libero fugit.
-
-                        </p>
+                        <p>Find your dream job with us! Explore thousands of career opportunities and take the next step in your professional journey.</p>
                         <div class="w3l-two-buttons mt-4">
                            <!-- <a href="#trail" class="btn btn-primary btn-style"> Try it For Free </a> -->
                         </div>
@@ -26,63 +24,55 @@
 
                         <ul>
                             <h6 class="footer-title-29">Links</h6>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="blog.html"> Blog posts</a></li>
-                            <li><a href="services.html">Services</a></li>
-                            <li><a href="blog.html"> Blog posts</a></li>
-                            <li><a href="contact.html">Contact us</a></li>
+                            <li><a href="{{ route('about') }}">About Us</a></li>
+                            <li><a href="{{ route('AllJobs')}}"> Jobs</a></li>
+                            <li><a href="{{ route('feedback') }}">Feedback</a></li>
+                            <li><a href="{{ route('contact') }}">Contact us</a></li>
 
                         </ul>
                     </div>
                     <div class="col-lg-2 col-md-6 footer-list-29 footer-3 mt-lg-0 mt-5">
-                        <h6 class="footer-title-29">Services</h6>
+                        <h6 class="footer-title-29">Job Seekers</h6>
                         <ul>
-                            <li><a href="#traning">Web Design</a></li>
-                            <li><a href="#traning">Development</a></li>
-                            <li><a href="#traning">Marketing Plans</a></li>
-                            <li><a href="#marketplace">Digital Services</a></li>
-                            <li><a href="#experts">Email Marketing</a></li>
-                            <li><a href="#platform">Product Selling</a></li>
+                            <li><a href="#findjobs">Find Jobs</a></li>
+                            <li><a href="#resume">Upload Resume</a></li>
+                            <li><a href="#career">Career Advice</a></li>
+                            <li><a href="#internships">Internships</a></li>
+                            <li><a href="#alerts">Job Alerts</a></li>
                         </ul>
+                    </div>
 
-                    </div>
-                    <div class="col-lg-2 col-md-6  footer-list-29 footer-4 mt-lg-0 mt-5">
-                        <h6 class="footer-title-29">More Info</h6>
+                    <div class="col-lg-2 col-md-6 footer-list-29 footer-4 mt-lg-0 mt-5">
+                        <h6 class="footer-title-29">Employers</h6>
                         <ul>
-                            <li><a href="#seo">Offline SEO</a></li>
-                            <li><a href="#traning">Development</a></li>
-                            <li><a href="#hack">Growth Hacking</a></li>
-                            <li><a href="#studio">Film Studio</a></li>
-                            <li><a href="#branding">Branding</a></li>
-                            <li><a href="#experts">Email Marketing</a></li>
-                            <li><a href="#marketplace">Lead Generation</a></li>
+                            <li><a href="#postjob">Post a Job</a></li>
+                            <li><a href="#recruitment">Recruitment Services</a></li>
+                            <li><a href="#screening">Resume Screening</a></li>
+                            <li><a href="#branding">Employer Branding</a></li>
+                            <li><a href="#support">Employer Support</a></li>
                         </ul>
                     </div>
-                    <div class="col-lg-2 col-md-6  footer-list-29 footer-4 mt-lg-0 mt-5">
+
+                    <div class="col-lg-2 col-md-6 footer-list-29 footer-4 mt-lg-0 mt-5">
                         <h6 class="footer-title-29">Support</h6>
                         <ul>
-                            <li><a href="#awards">Awards</a></li>
-                            <li><a href="#secutiry">Security</a></li>
-
-                            <li><a href="#proj">Products</a></li>
-                            <li><a href="#efaq">faQ</a></li>
-                            <li><a href="#help">Help</a></li>
-                            <li><a href="#mail">Mail Us</a></li>
-                            <li><a href="#terms">Terms
-                                </a></li>
-                            <li><a href="#policy">Privacy Policy</a></li>
-
-
+                            <li><a href="#faq">FAQ</a></li>
+                            <li><a href="#contact">Contact Us</a></li>
+                            <li><a href="#privacy">Privacy Policy</a></li>
+                            <li><a href="#terms">Terms & Conditions</a></li>
+                            <li><a href="#blog">Blog</a></li>
+                            <li><a href="#help">Help Center</a></li>
                         </ul>
                     </div>
+
                 </div>
             </div>
         </div>
         <!-- copyright -->
         <section class="w3l-copyright text-center">
             <div class="container">
-                <p class="copy-footer-29">© 2021 DigitMarketing. All rights reserved. Design by <a href="https://w3layouts.com/" target="_blank">
-                        W3Layouts</a></p>
+                <p class="copy-footer-29">© 2021 DigitMarketing. All rights reserved. Design by <a href="{{ route('home') }}" target="_blank">
+                        TalentHunt</a></p>
             </div>
 
             <!-- move top -->

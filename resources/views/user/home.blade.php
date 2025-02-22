@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Job portal:Home</title>
+    <title>Home</title>
     <!--/google-fonts -->
     <link href="//fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,700;1,400;1,600&display=swap" rel="stylesheet">
     <!--//google-fonts -->
@@ -30,8 +30,8 @@
                     <h3 class="mb-4 title">Dream Job</h3>
                     <p class="w3banr-p">Discover endless opportunities with our job search platform. Whether you're a fresh graduate or an experienced professional, we help you find the perfect fit.</p>
                     <div class="w3l-buttons mt-sm-5 mt-4">
-                        <a class="btn btn-primary btn-style me-2" href="about.html">learn More </a>
-                        <a class="btn btn-outline-primary btn-style " href="contact.html"> Get Started </a>
+                        <a class="btn btn-primary btn-style me-2" href="{{ route('about') }}">learn More </a>
+                        <a class="btn btn-outline-primary btn-style " href="{{ route('login') }}"> Get Started </a>
                     </div>
                 </div>
                 <div class="col-lg-6 w3l-slider-right-info mt-lg-0 mt-5 ps-lg-5 align-items-center">

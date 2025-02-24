@@ -71,7 +71,7 @@
         <!-- copyright -->
         <section class="w3l-copyright text-center">
             <div class="container">
-                <p class="copy-footer-29">© 2021 DigitMarketing. All rights reserved. Design by <a href="{{ route('home') }}" target="_blank">
+                <p class="copy-footer-29">©  All rights reserved. Design by <a href="{{ route('home') }}" target="_blank">
                         TalentHunt</a></p>
             </div>
 

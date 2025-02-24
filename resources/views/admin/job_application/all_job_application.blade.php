@@ -114,8 +114,7 @@ $count = 1;
                         <td>Application Candidate Contact</td>
                         <td>Application Date</td>
                         <td>Application Status</td>
-                        <td>Application Posted Date</td>
-                        <td align="center">Action</td>
+                        <td align="center" colspan="2">Action</td>
                     </tr>
                     @foreach($record as $row)
                         <tr data-id="{{$row->app_id}}">
@@ -126,10 +125,14 @@ $count = 1;
                             <td>{{$row->candidate_contact}}</td>
                             <td>{{$row->application_date}}</td>
                             <td>{{$row->application_status}}</td>
-                            <td colspan="2">
-                                <a href="{{route('view_job_application',['id'=>$row->app_id])}}"><button class="btn btn-success"><i class="bi bi-eye"></i></button></a>
-                                <button class="EditStatus btn btn-primary" data-id="{{$row->app_id}}" >Edit</button>
+                            @if ($row->application_status == 'Interview Completed')
+                              <td colspan="2">Interview Completed</td>
+                            @else
+                              <td colspan="2">
+                                  <a href="{{route('view_job_application',['id'=>$row->app_id])}}"><button class="btn btn-success"><i class="bi bi-eye"></i></button></a>
+                                  <button class="EditStatus btn btn-primary" data-id="{{$row->app_id}}" >Edit</button>
                               </td>
+                            @endif
                         </tr>
                     @endforeach
                 </table>

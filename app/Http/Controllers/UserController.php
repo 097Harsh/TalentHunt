@@ -15,6 +15,7 @@ use App\Models\State;
 use App\Models\UserProfile;
 use App\Models\feedback;
 use Mail;
+use Barryvdh\DomPDF\Facade as PDF;
 
 class UserController extends Controller
 {
@@ -314,6 +315,22 @@ class UserController extends Controller
                                                      ->paginate(5); 
              return view('user.MyJobs',compact('record'));
          }
-     }
+    }
+    //make resume download functionality according profile
+    public function makeResume(Request $request)
+    {   
+        if(Auth::check())
+        {
+            $id = Auth::user()->id;
+            $data = DB::table('user_profiles')
+                        ->where('user_id','=',$id)
+                        ->first();
+            
+            //echo "<pre>";print_r($skills);die;
+            $pdf = PDF::loadView('user.resume',compact('data'));
+            $filename = 'resume'.$id.'.pdf';
+            return $pdf->download($filename);
+        }
+    }
  
 }

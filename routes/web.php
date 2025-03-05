@@ -37,7 +37,8 @@ Route::post('/search',[UserController::class,'search'])->middleware(['auth', 've
 Route::post('/AppliedJob',[UserController::class,'Job_Applied'])->middleware(['auth', 'verified'])->name('AppliedJob');
 //My job module
 Route::get('/MyJobs',[UserController::class,'MyJobs'])->middleware(['auth', 'verified'])->name('MyJobs');
-
+//make resume URL route
+Route::get('/makeResume',[UserController::class,'makeResume'])->middleware(['auth', 'verified'])->name('makeResume');
 
 
 //Admin URl

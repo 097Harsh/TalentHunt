@@ -232,7 +232,6 @@ $count = 1;
                     </div>
                     <div class="modal-body">
                         <!-- Hidden field to store course ID -->
-                        <input type="hidden" name="course_id" id="edit_course_id">
                         <div class="mb-3 mt-3">
                                 <label for="name"> Course Name:</label>
                                 <span class="error" style="color:red;">*</span>

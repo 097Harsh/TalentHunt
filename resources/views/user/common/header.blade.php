@@ -40,7 +40,7 @@
                             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                 <li><a class="dropdown-item" href="{{route('userProfile')}}">Update Profile</a></li>
                                 <li><a class="dropdown-item" href="{{route('MyJobs')}}">My Jobs </a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="{{ route('makeResume') }}">Make Resume</a></li>
                                 <li class="nav-item me-lg-3">
                                     <form action="{{ route('logout') }}" method="POST" class="d-none d-lg-block">
                                         @csrf
@@ -58,17 +58,17 @@
 
                 </ul>
 
-                <!-- search popup -->
-                <div id="search" class="w3lpop-overlay">
-                    <div class="w3lpopup">
-                        <form action="#formsearch" method="GET" class="d-sm-flex">
-                            <input class="form-control me-2" type="search" placeholder="Search here..." aria-label="Search" required="">
-                            <button class="btn btn-style btn-primary" type="submit">Search</button>
-                            <a class="close" href="#formsearch">&times;</a>
-                        </form>
+                    <!-- search popup -->
+                    <div id="search" class="w3lpop-overlay">
+                        <div class="w3lpopup">
+                            <form action="#formsearch" method="GET" class="d-sm-flex">
+                                <input class="form-control me-2" type="search" placeholder="Search here..." aria-label="Search" required="">
+                                <button class="btn btn-style btn-primary" type="submit">Search</button>
+                                <a class="close" href="#formsearch">&times;</a>
+                            </form>
+                        </div>
                     </div>
-                </div>
-                <!-- /search popup -->
+                    <!-- /search popup -->
             </div>
         </nav>
     </div>

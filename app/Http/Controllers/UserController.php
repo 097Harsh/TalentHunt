@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Mail\StatusMail;
 use App\Models\Contact;
 use Illuminate\Support\Facades\DB;
@@ -318,19 +317,25 @@ class UserController extends Controller
     }
     //make resume download functionality according profile
     public function makeResume(Request $request)
-    {   
-        if(Auth::check())
-        {
+    {
+        if (Auth::check()) {
             $id = Auth::user()->id;
             $data = DB::table('user_profiles')
-                        ->where('user_id','=',$id)
+                        ->where('user_id', '=', $id)
                         ->first();
-            
-            //echo "<pre>";print_r($skills);die;
-            $pdf = PDF::loadView('user.resume',compact('data'));
-            $filename = 'resume'.$id.'.pdf';
-            return $pdf->download($filename);
+
+             // Render the Blade view to HTML
+            $html = view('user.resume', compact('data'))->render();
+
+            // Return the view and pass the necessary data to handle it in the browser
+            return response()->view('user.resume', compact('data'))
+            ->header('Content-Type', 'text/html')
+            ->header('Content-Disposition', 'inline; filename="resume.pdf"');
         }
+
+        return redirect()->route('login')->with('error', 'Please login to generate your resume.');
     }
- 
+
+
+   
 }

@@ -14,7 +14,7 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
-
+   
     /*
     |--------------------------------------------------------------------------
     | Application Environment
@@ -104,7 +104,6 @@ return [
             explode(',', env('APP_PREVIOUS_KEYS', ''))
         ),
     ],
-
     /*
     |--------------------------------------------------------------------------
     | Maintenance Mode Driver

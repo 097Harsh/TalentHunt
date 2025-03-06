@@ -54,12 +54,6 @@
         <p>{{ $data->course }}</p>
     </section>
 
-    <section class="section-content">
-        <div class="section-header">Certifications</div>
-        <ul>
-            <li>Certified Laravel Developer | Laravel Certification, 2021</li>
-            <li>JavaScript Developer Certification | Coding Academy, 2020</li>
-        </ul>
-    </section>
+    
 </body>
 </html>

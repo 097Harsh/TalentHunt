@@ -53,6 +53,11 @@ class UserController extends Controller
         }
         return redirect()->route('home');
     }
+    //blog page
+    public function blog()
+    {
+        return view('user.blog');
+    }
     //user profile 
     public function userProfile()
     {

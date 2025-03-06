@@ -19,6 +19,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('contact')}}">Contact</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('blog')}}">Blog</a>
+                    </li>
                     @if(Auth::check())
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('feedback')}}">Feedback</a>

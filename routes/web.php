@@ -14,8 +14,6 @@ Route::get('/about',[UserController::class,'about'])->name('about');
 Route::get('/contact',[UserController::class,'contact'])->name('contact');
 //store contact detials
 Route::post('/storeContact',[UserController::class,'storeContact'])->name('storeContact');
-//blog page
-Route::get('/blog',[UserController::class,'blog'])->name('blog');
 
 
 //User side URL's

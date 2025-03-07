@@ -15,6 +15,7 @@ use App\Models\UserProfile;
 use App\Models\feedback;
 use Mail;
 use Barryvdh\DomPDF\Facade as PDF;
+use Twilio\Rest\Client;
 
 class UserController extends Controller
 {
@@ -341,6 +342,40 @@ class UserController extends Controller
         return redirect()->route('login')->with('error', 'Please login to generate your resume.');
     }
 
+    //send msg to user
+
+    public function sendmsg()
+    {
+        // Retrieve Twilio SID, Auth Token, and WhatsApp Numbers from .env file
+        $sid    = env('TWILIO_SID');  // Your Twilio Account SID
+        $token  = env('TWILIO_AUTH_TOKEN');  // Your Twilio Auth Token
+        $fromNumber = env('TWILIO_WHATSAPP_NUMBER');  // Your Twilio WhatsApp number
+    
+        // Recipient's WhatsApp number (change it as needed)
+        $toNumber = "+919712658293";  // Example recipient number
+        $msg = "Your Message";  // The message to send
+    
+        // Initialize the Twilio client with SID and Auth Token
+        $twilio = new Client($sid, $token);
+    
+        try {
+            // Send the WhatsApp message with dynamic content and variables
+            $message = $twilio->messages->create(
+                'whatsapp:' . $toNumber,  // Recipient's WhatsApp number
+                [
+                    'from' => 'whatsapp:' . $fromNumber,  // Your Twilio WhatsApp number
+                    'body' => $msg,  // Message body
+                      ]
+            );
+    
+            // Return success response with message SID
+            return response()->json(['msg' => 'Message sent successfully']);
+        } catch (\Exception $e) {
+            // Return error response with the exception message
+            return response()->json(['msg' => 'Error sending message']);
+        }
+    }
+    
 
    
 }

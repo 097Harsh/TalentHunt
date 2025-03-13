@@ -1,0 +1,96 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Count 1 /Kids [3 0 R] >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 585 >>
+stream
+BT
+/F1 12 Tf
+100 700 Td
+() Tj
+() Tj
+() Tj
+(    ) Tj
+(    ) Tj
+(    ATS Free Resume) Tj
+(    ) Tj
+(        body {) Tj
+(            font-family: Arial, sans-serif;) Tj
+(            margin: 0;) Tj
+(            padding: 20px;) Tj
+(            line-height: 1.5;) Tj
+(        }) Tj
+(        .section-header {) Tj
+(            font-size: 1.5em;) Tj
+(            font-weight: bold;) Tj
+(            margin-bottom: 10px;) Tj
+(            border-bottom: 2px solid #000;) Tj
+(        }) Tj
+(        .section-content {) Tj
+(            margin-bottom: 20px;) Tj
+(        }) Tj
+(        .section-content ul {) Tj
+(            list-style-type: none;) Tj
+(            padding-left: 0;) Tj
+(        }) Tj
+(        .section-content li {) Tj
+(            margin-bottom: 8px;) Tj
+(        }) Tj
+(    ) Tj
+() Tj
+() Tj
+(    ) Tj
+(        Harsh Shah) Tj
+(        Email: harshshah6966@gmail.com | Phone: +91 9712658293 | Address:) Tj
+(testing ) Tj
+(    ) Tj
+() Tj
+(    ) Tj
+(        Professional Summary) Tj
+(        testing) Tj
+(    ) Tj
+() Tj
+(    ) Tj
+(        Skills) Tj
+(        ) Tj
+(            PHP,Python,HTML,Javascript,CSS,Laravel,Java) Tj
+(        ) Tj
+(    ) Tj
+() Tj
+(    ) Tj
+(        Education) Tj
+(        BCA,MCA) Tj
+(    ) Tj
+() Tj
+(    ) Tj
+(        Certifications) Tj
+(        ) Tj
+(            Certified Laravel Developer | Laravel Certification, 2021) Tj
+(            JavaScript Developer Certification | Coding Academy, 2020) Tj
+(        ) Tj
+(    ) Tj
+() Tj
+() Tj
+() Tj
+ET
+endstream
+endobj
+xref
+0 5
+0000000000 65535 f 
+0000000010 00000 n 
+0000000079 00000 n 
+0000000172 00000 n 
+0000000275 00000 n 
+trailer
+<< /Size 5 /Root 1 0 R >>
+startxref
+385
+%%EOF

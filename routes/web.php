@@ -12,7 +12,6 @@ use App\Models\User;
 Route::get('/',[UserController::class,'home'])->name('home');
 Route::get('/about',[UserController::class,'about'])->name('about');
 Route::get('/contact',[UserController::class,'contact'])->name('contact');
-Route::get('/sendmsg',[UserController::class,'sendmsg'])->name('sendmsg');
 //store contact detials
 Route::post('/storeContact',[UserController::class,'storeContact'])->name('storeContact');
 

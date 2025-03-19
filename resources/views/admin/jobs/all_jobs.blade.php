@@ -20,6 +20,17 @@ $count = 1;
       content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard"
     />
     <!--end::Primary Meta Tags-->
+    <style>
+     
+     .button-container {
+        display: flex;
+        gap: 10px; /* Adds space between the buttons */
+        justify-content: flex-start;
+      }
+      .AddRecord {
+        float: right;
+      }
+    </style>
     <!--begin::Fonts-->
     <link
       rel="stylesheet"
@@ -112,9 +123,10 @@ $count = 1;
                             <td>Job Description</td>
                             <td>Job Vacancy</td>
                             <td>Job Experience</td>
-                            <td>Job Open</td>
+                            <td>Job Skills</td>
+                            <td>Job Status</td>
                             <td>Job Contact</td>
-                            <td  align="center">Action</td>
+                            <td colspan="4" align="center">Action</td>
                             <td>
                                 <button class="AddRecord btn btn-primary" style="float:right;">ADD</button>
                             </td>
@@ -129,7 +141,9 @@ $count = 1;
                               <td>{{$row->job_skill_required}}</td>
                               <td>{{$row->status}}</td>
                               <td>{{$row->ContactEmail}}</td>
-                              <td colspan="2">
+                              <td colspan="4">
+                              <td colspan="4">
+                                <div class="button-container">
                                   <button class="EditRecord btn btn-primary" data-id="{{$row->job_id}}" 
                                   data-title="{{$row->title}}"
                                   data-description="{{$row->description}}"
@@ -147,7 +161,8 @@ $count = 1;
                                   data-state_id="{{$row->state_id }}"
                                   data-city_id="{{$row->city_id }}">Edit</button>
                                   <button class="deleteRecord btn btn-danger" data-id="{{$row->job_id}}" >Delete</button>
-                              </td>
+                                </div>  
+                              </td></td>
                           </tr>
                       @endforeach
 

@@ -20,6 +20,17 @@ $count = 1;
       content="bootstrap 5, bootstrap, bootstrap 5 admin dashboard, bootstrap 5 dashboard, bootstrap 5 charts, bootstrap 5 calendar, bootstrap 5 datepicker, bootstrap 5 tables, bootstrap 5 datatable, vanilla js datatable, colorlibhq, colorlibhq dashboard, colorlibhq admin dashboard"
     />
     <!--end::Primary Meta Tags-->
+    <style>
+     
+     .button-container {
+        display: flex;
+        gap: 10px; /* Adds space between the buttons */
+        justify-content: flex-start;
+      }
+      .AddRecord {
+        float: right;
+      }
+    </style>
     <!--begin::Fonts-->
     <link
       rel="stylesheet"
@@ -105,32 +116,37 @@ $count = 1;
                 </div>
                 @endif
                 
-                    <table class="table table-hover">
-                        <tr>
-                            <td>Job ID</td>
-                            <td>Job Title</td>
-                            <td>Job Description</td>
-                            <td>Job Vacancy</td>
-                            <td>Job Experience</td>
-                            <td>Job Open</td>
-                            <td>Job Contact</td>
-                            <td  align="center">Action</td>
-                            <td>
-                                <button class="AddRecord btn btn-primary" style="float:right;">ADD</button>
-                            </td>
-                        </tr>
-                        @foreach($record as $row)
-                          <tr data-id="{{$row->job_id}}">
-                              <td>{{$count++}}</td>
-                              <td>{{$row->title}}</td>
-                              <td>{{$row->description}}</td>
-                              <td>{{$row->num_of_vacany}}</td>
-                              <td>{{$row->experience}}</td>
-                              <td>{{$row->job_skill_required}}</td>
-                              <td>{{$row->status}}</td>
-                              <td>{{$row->ContactEmail}}</td>
-                              <td colspan="2">
-                                  <button class="EditRecord btn btn-primary" data-id="{{$row->job_id}}" 
+                <table class="table table-hover">
+                  <tr>
+                    <td>Job ID</td>
+                    <td>Job Title</td>
+                    <td>Job Description</td>
+                    <td>Job Vacancy</td>
+                    <td>Job Experience</td>
+                    <td>Job Skills</td>
+                    <td>Job Status</td>
+                    <td>Job Contact</td>
+                    <td colspan="4" align="center">Action</td>
+                    <td>
+                      <button class="AddRecord btn btn-primary" style="float:right;">ADD</button>
+                    </td>
+                  </tr>
+                  @foreach($record as $row)
+                    <tr data-id="{{$row->job_id}}">
+                      <td>{{$count++}}</td>
+                      <td>{{$row->title}}</td>
+                      <td>{{$row->description}}</td>
+                      <td>{{$row->num_of_vacany}}</td>
+                      <td>{{$row->experience}}</td>
+                      <td>{{$row->job_skill_required}}</td>
+                      <td>{{$row->status}}</td>
+                      <td>{{$row->ContactEmail}}</td>
+                      <td colspan="4">
+                        <!-- Action Buttons in the same line -->
+                      <td colspan="4">
+                        <div class="button-container">
+                          <button class="EditRecord btn btn-primary" 
+                                  data-id="{{$row->job_id}}" 
                                   data-title="{{$row->title}}"
                                   data-description="{{$row->description}}"
                                   data-num_of_vacany="{{$row->num_of_vacany}}"
@@ -140,18 +156,21 @@ $count = 1;
                                   data-job_working_hour="{{$row->job_working_hour}}"
                                   data-posted_date="{{$row->posted_date}}"
                                   data-closing_date="{{$row->closing_date}}"
-                                  data-contactemail="{{$row->ContactEmail}}" 
+                                  data-contactemail="{{$row->ContactEmail}}"
                                   data-category_id="{{$row->category_id}}"
                                   data-department_id="{{$row->department_id}}"
                                   data-country_id="{{$row->country_id}}"
-                                  data-state_id="{{$row->state_id }}"
-                                  data-city_id="{{$row->city_id }}">Edit</button>
-                                  <button class="deleteRecord btn btn-danger" data-id="{{$row->job_id}}" >Delete</button>
-                              </td>
-                          </tr>
-                      @endforeach
+                                  data-state_id="{{$row->state_id}}"
+                                  data-city_id="{{$row->city_id}}">Edit</button>
+                          <button class="deleteRecord btn btn-danger" 
+                                  data-id="{{$row->job_id}}">Delete</button>
+                        </div>
+                      </td>
+                      </td>
+                    </tr>
+                  @endforeach
+                </table>
 
-                    </table>
                 </div>
                  <!-- Pagination link-->
               <nav aria-label="..." style="float:right;">

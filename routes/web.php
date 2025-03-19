@@ -9,13 +9,12 @@ use App\Models\CompanyProfile;
 use App\Http\Controllers\ZoomMeetingController;
 use App\Models\User;
 
+
 Route::get('/',[UserController::class,'home'])->name('home');
 Route::get('/about',[UserController::class,'about'])->name('about');
 Route::get('/contact',[UserController::class,'contact'])->name('contact');
 //store contact detials
 Route::post('/storeContact',[UserController::class,'storeContact'])->name('storeContact');
-
-
 //User side URL's
 Route::get('/userProfile',[UserController::class,'userProfile'])->middleware(['auth', 'verified'])->name('userProfile');
 Route::post('/UpdateProfile',[UserController::class,'UpdateProfile'])->middleware(['auth', 'verified'])->name('UpdateProfile');

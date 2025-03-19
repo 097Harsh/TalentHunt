@@ -17,6 +17,7 @@ use Mail;
 use Barryvdh\DomPDF\Facade as PDF;
 use Twilio\Rest\Client;
 
+
 class UserController extends Controller
 {
     //
@@ -342,7 +343,6 @@ class UserController extends Controller
         return redirect()->route('login')->with('error', 'Please login to generate your resume.');
     }
 
-   
     
 
    

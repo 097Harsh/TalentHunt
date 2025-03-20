@@ -6,7 +6,7 @@ $count = 1;
   <!--begin::Head-->
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title> Manage Jobs Application</title>
+    <title> Manage Interviews</title>
     <!--begin::Primary Meta Tags-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="title" content="AdminLTE 4 | Simple Tables" />
@@ -79,11 +79,11 @@ $count = 1;
           <div class="container-fluid">
             <!--begin::Row-->
             <div class="row">
-              <div class="col-sm-6"><h3 class="mb-0">Manager Jobs Application</h3></div>
+              <div class="col-sm-6"><h3 class="mb-0">Manager Interview</h3></div>
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-end">
                   <li class="breadcrumb-item">Dashboard</li>
-                  <li class="breadcrumb-item active" aria-current="page">Manage Job Application</li>
+                  <li class="breadcrumb-item active" aria-current="page">Manage Interview</li>
                 </ol>
               </div>
             </div>

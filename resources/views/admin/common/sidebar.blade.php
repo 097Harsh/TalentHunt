@@ -155,7 +155,7 @@
                     <a href="{{route('CompanyFeedback')}}" class="nav-link ">
                     <i class="nav-icon bi bi-chat-left-text"></i>
                     <p>
-                        Get Feedback
+                        Give Feedback
                     </p>
                     </a>
                 </li>

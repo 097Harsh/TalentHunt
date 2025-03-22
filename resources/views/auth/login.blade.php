@@ -33,7 +33,7 @@
                     <div class="w3breadcrumb-info mt-5">
                         <h2 class="w3ltop-title pt-4">Get logged in</h2>
                         <ul class="breadcrumbs-custom-path">
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="{{route('home')}}">Home</a></li>
                             <li class="active"><span class="fas fa-angle-double-right mx-2"></span> login</li>
                         </ul>
                     </div>
@@ -83,6 +83,7 @@
                             <label for="remember_me" class="form-check-label text-sm text-gray-600 dark:text-gray-400" style="font-size: 0.875rem;">
                                 {{ __('Remember me') }}
                             </label>
+                            <p style="float:right;"><a href="{{ url('/forgot-password') }}">Forgot Password Here...</a></p>
                         </div>
                         <div class="text-lg-center">
                             <!-- Submit Button -->
@@ -90,7 +91,7 @@
                         </div>
                     </form>
                     <!-- Message for Users Not Registered -->
-                    <p class="mt-4 text-center">Don't have an account? <a href="{{ route('register') }}" class="text-primary">Register here</a> to get started with your job search!</p>    
+                    <p class="mt-4 text-center">Don't have an account? <a href="{{ route('register') }}" class="text-primary">Register here</a> to get started with your job search!</p>
                 </div>
             </div>
         </div>

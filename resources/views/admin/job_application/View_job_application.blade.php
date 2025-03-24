@@ -153,7 +153,7 @@ $count = 1;
                             <td colspan="3" align="center">
                                
                                 <button class="EditStatus btn btn-primary" data-id="{{$record->app_id}}">Edit</button>
-                                <a href="{{route('JobApplication')}}"><button class="btn btn-danger">Back</button></a>
+                                <a href="{{route('Job-Applications')}}"><button class="btn btn-danger">Back</button></a>
                             </td>
                         </tr>
                     </table>

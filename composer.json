@@ -10,7 +10,7 @@
         "barryvdh/laravel-dompdf": "*",
         "google/apiclient": "^2.18",
         "google/apiclient-services": "^0.393.0",
-        "guzzlehttp/guzzle": "*",
+        "guzzlehttp/guzzle": "^7.9",
         "laravel/breeze": "^2.3",
         "laravel/framework": "^11.31",
         "laravel/tinker": "^2.9",

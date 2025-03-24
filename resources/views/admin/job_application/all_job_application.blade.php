@@ -125,14 +125,19 @@ $count = 1;
                             <td>{{$row->candidate_contact}}</td>
                             <td>{{$row->application_date}}</td>
                             <td>{{$row->application_status}}</td>
-                            @if ($row->application_status == 'Interview Completed')
-                              <td colspan="2">Interview Completed</td>
-                            @else
-                              <td colspan="2">
-                                  <a href="{{route('view_job_application',['id'=>$row->app_id])}}"><button class="btn btn-success"><i class="bi bi-eye"></i></button></a>
-                                  <button class="EditStatus btn btn-primary" data-id="{{$row->app_id}}" >Edit</button>
-                              </td>
-                            @endif
+                            <td colspan="2" style="white-space: nowrap; display: flex; align-items: center; justify-content: space-between;">
+                              @if ($row->application_status == 'Interview Completed')
+                                <span>Interview Completed</span>
+                              @else
+                                <span>
+                                  <a href="{{route('view_job_application',['id'=>$row->app_id])}}">
+                                    <button class="btn btn-success"><i class="bi bi-eye"></i></button>
+                                  </a>
+                                  <button class="EditStatus btn btn-primary" data-id="{{$row->app_id}}">Edit</button>
+                                </span>
+                              @endif
+                            </td>
+
                         </tr>
                     @endforeach
                 </table>

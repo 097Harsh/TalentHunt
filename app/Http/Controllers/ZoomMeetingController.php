@@ -14,7 +14,9 @@ class ZoomMeetingController extends Controller
 {
     //
     protected $zoomService;
-
+    private $client_id = 'JSnPH8sOR1iRrcM9ct4UUw';
+    private $client_secret = 'z1Gxwy16fxDODXseICOz2fE04ZDexeJE';
+    private $account_id = 'Vtq28BYoR9y-IEASKHKWKA';
     public function __construct(ZoomServices $zoomService)
     {
         $this->zoomService = $zoomService;
@@ -32,6 +34,7 @@ class ZoomMeetingController extends Controller
         
         if(Auth::check())
         {
+
             $user_id = Auth::user()->id;
             
             // Combine date and time into a single DateTime string

@@ -6,7 +6,7 @@
                     <div class="col-lg-4 col-md-6 footer-list-29 footer-1 pe-lg-5">
                         <div class="footer-logo mb-4">
                             <h2><a class="navbar-brand" href="index.html">
-                                    <span class="sublog">Job</span>Portal
+                                    <span class="sublog">Talent</span>Hunt
                                 </a></h2>
                         </div>
                         <p>Find your dream job with us! Explore thousands of career opportunities and take the next step in your professional journey.</p>

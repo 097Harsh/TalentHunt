@@ -170,7 +170,7 @@ $city_id = old('city_id','');
                         </div>
 
                         <!-- Submit Button -->
-                        <button type="submit" class="btn btn-primary">Register</button>
+                        <button type="submit" class="phone-btn btn btn-primary">Register</button>
                     </form>
 
                     <!-- Message for Users Not Registered -->

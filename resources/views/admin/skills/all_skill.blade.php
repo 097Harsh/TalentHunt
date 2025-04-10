@@ -210,7 +210,7 @@ $count = 1;
                       </div>
                       <div class="modal-footer">
                           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                          <button type="submit" class="btn btn-danger">Yes, Add Course</button>
+                          <button type="submit" class="btn btn-danger">Yes, Add Skill</button>
                       </div>
                   </form>
               </div>
@@ -245,7 +245,7 @@ $count = 1;
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-danger">Yes, Update Course</button>
+                        <button type="submit" class="btn btn-danger">Yes, Update Skill</button>
                     </div>
                 </form>
             </div>

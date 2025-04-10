@@ -133,10 +133,17 @@ $count = 1;
                                 <td>{{ $row->posted_date }}</td>
                                 <td colspan="4" class="text-center">
                                     <div class="d-inline-flex gap-2">
-                                        <a href="{{ route('ViewJobApplication', ['id' => $row->app_id]) }}" class="btn btn-secondary">
-                                            <i class="bi bi-eye"></i>
-                                        </a>
-                                        <button class="EditStatus btn btn-primary" data-id="{{ $row->app_id }}">Edit</button>
+                                        
+                                        @if($row->application_status == "Hired" || $row->application_status == "Rejected")
+                                          <a href="{{ route('ViewJobApplication', ['id' => $row->app_id]) }}" class="btn btn-secondary">
+                                              <i class="bi bi-eye"></i>
+                                          </a>
+                                        @else
+                                          <a href="{{ route('ViewJobApplication', ['id' => $row->app_id]) }}" class="btn btn-secondary">
+                                              <i class="bi bi-eye"></i>
+                                          </a>
+                                          <button class="EditStatus btn btn-primary" data-id="{{ $row->app_id }}">Edit</button>
+                                        @endif
                                     </div>
                                 </td>
 

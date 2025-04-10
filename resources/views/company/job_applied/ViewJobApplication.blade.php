@@ -152,7 +152,9 @@ $count = 1;
                         <tr>
                             <td colspan="3" align="center">
                                
-                                <button class="EditStatus btn btn-primary" data-id="{{$record->app_id}}">Edit</button>
+                                @if($record->application_status=="Viewed" || $record->application_status=="Pending")
+                                  <button class="EditStatus btn btn-primary" data-id="{{$record->app_id}}">Edit</button>
+                                @endif  
                                 <a href="{{route('JobApplication')}}"><button class="btn btn-danger">Back</button></a>
                             </td>
                         </tr>

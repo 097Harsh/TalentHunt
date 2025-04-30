@@ -15,9 +15,9 @@
                         </div>
                         <div class="main-social-footer-29 mt-5">
                             <a href="https://www.facebook.com/share/1DdFB3LauW/" class="facebook"><span class="fab fa-facebook-f"></span></a>
-                            <a href="#twitter" class="twitter"><span class="fab fa-twitter"></span></a>
+                            <a href="https://x.com/TelentHunt2025" class="twitter"><span class="fab fa-twitter"></span></a>
                             <a href="https://www.instagram.com/talenthunt079?igsh=NGVpdzVjZmg3MzBx" class="instagram"><span class="fab fa-instagram"></span></a>
-                            <a href="#linkedin" class="linkedin"><span class="fab fa-linkedin-in"></span></a>
+                            <a href="https://www.linkedin.com/in/telent-hunt-770b32362/" class="linkedin"><span class="fab fa-linkedin-in"></span></a>
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-6 footer-list-29 footer-2 mt-sm-0 mt-5">

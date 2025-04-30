@@ -14,9 +14,9 @@
                            <!-- <a href="#trail" class="btn btn-primary btn-style"> Try it For Free </a> -->
                         </div>
                         <div class="main-social-footer-29 mt-5">
-                            <a href="#facebook" class="facebook"><span class="fab fa-facebook-f"></span></a>
+                            <a href="https://www.facebook.com/share/1DdFB3LauW/" class="facebook"><span class="fab fa-facebook-f"></span></a>
                             <a href="#twitter" class="twitter"><span class="fab fa-twitter"></span></a>
-                            <a href="#instagram" class="instagram"><span class="fab fa-instagram"></span></a>
+                            <a href="https://www.instagram.com/talenthunt079?igsh=NGVpdzVjZmg3MzBx" class="instagram"><span class="fab fa-instagram"></span></a>
                             <a href="#linkedin" class="linkedin"><span class="fab fa-linkedin-in"></span></a>
                         </div>
                     </div>

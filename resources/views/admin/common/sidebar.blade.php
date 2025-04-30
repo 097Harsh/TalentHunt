@@ -6,7 +6,7 @@
           <a href="{{route('dashboard')}}" class="brand-link">
             <!--begin::Brand Image-->
             <img
-              src="{{asset('admin/assets/img/login.png')}}"
+              src="{{asset('admin/assets/img/job.png')}}"
               alt="AdminLTE Logo"
               class="brand-image opacity-75 shadow"
             />

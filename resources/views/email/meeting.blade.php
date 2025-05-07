@@ -10,6 +10,10 @@
         <p>We are pleased to inform you that your interview has been scheduled. Please find the meeting details below:</p>
         
         <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+        <tr>
+                <td style="padding: 10px; font-weight: bold;">Interview Date:</td>
+                <td style="padding: 10px;">{{ $date }}</td>
+            </tr>
             <tr>
                 <td style="padding: 10px; font-weight: bold;">Meeting ID:</td>
                 <td style="padding: 10px;">{{ $meetingId }}</td>

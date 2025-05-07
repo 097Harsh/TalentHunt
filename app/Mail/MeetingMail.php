@@ -12,17 +12,18 @@ use Illuminate\Queue\SerializesModels;
 class MeetingMail extends Mailable
 {
     use Queueable, SerializesModels;
-    public $meetingId,$joinUrl,$password,$interviewTime;
+    public $meetingId,$joinUrl,$password,$interviewTime,$date;
     /**
      * Create a new message instance.
      */
-    public function __construct($meetingId,$joinUrl,$password,$interviewTime)
+    public function __construct($meetingId,$joinUrl,$password,$interviewTime,$date)
     {
         //
         $this->meetingId = $meetingId;
         $this->joinUrl = $joinUrl;
         $this->password = $password;
         $this->interviewTime = $interviewTime;
+        $this->date = $date;
      }
 
     /**
@@ -43,6 +44,7 @@ class MeetingMail extends Mailable
         return new Content(
             view: 'email.meeting',
             with:[
+                'Interview Date' => $this->date,
                 'meetingId' => $this->meetingId,
                 'joinUrl' => $this->joinUrl,
                 'password' => $this->password,

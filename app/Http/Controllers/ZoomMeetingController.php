@@ -86,8 +86,9 @@ class ZoomMeetingController extends Controller
                     ->first();
             //to get the mail
             $email = $user->email;
+            $date = $request['date'];
             //to send zoom meeting mail to user
-            Mail::to($email)->send(new MeetingMail($meetingId,$joinUrl,$password,$interviewTime));
+            Mail::to($email)->send(new MeetingMail($meetingId,$joinUrl,$password,$interviewTime,$date));
         
             // Return a success response with the meeting details
             /*   return response()->json([

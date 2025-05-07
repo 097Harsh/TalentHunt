@@ -6,6 +6,8 @@ use GuzzleHttp\Exception\RequestException;
 
 class ZoomServices
 {
+
+    //zoo client config details....
     protected $client;
     private $client_id = 'JSnPH8sOR1iRrcM9ct4UUw';
     private $client_secret = 'z1Gxwy16fxDODXseICOz2fE04ZDexeJE';

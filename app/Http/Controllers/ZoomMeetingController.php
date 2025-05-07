@@ -14,6 +14,7 @@ class ZoomMeetingController extends Controller
 {
     //
     protected $zoomService;
+    //zoom meeting config.... details......
     private $client_id = 'JSnPH8sOR1iRrcM9ct4UUw';
     private $client_secret = 'z1Gxwy16fxDODXseICOz2fE04ZDexeJE';
     private $account_id = 'Vtq28BYoR9y-IEASKHKWKA';
